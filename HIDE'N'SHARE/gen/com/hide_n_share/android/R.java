@@ -35,9 +35,11 @@ public final class R {
         public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
+        public static final int Texte1VueCacher=0x7f09000d;
+        public static final int Texte2VueCacher=0x7f090011;
         public static final int TexteVueCacher=0x7f090004;
         public static final int acceuilTexte=0x7f090001;
-        public static final int action_settings=0x7f090010;
+        public static final int action_settings=0x7f090012;
         public static final int boutonAcceuilDevoiler=0x7f090002;
         public static final int boutonAcceuilDissimuler=0x7f090003;
         public static final int boutonVueCacherCacherTexte=0x7f090008;
@@ -46,11 +48,11 @@ public final class R {
         public static final int boutonVueCacherPhotoExistant=0x7f090005;
         public static final int boutonVueCacherTexteValide=0x7f09000a;
         public static final int container=0x7f090000;
-        public static final int editText1=0x7f09000f;
-        public static final int radioButton1=0x7f09000d;
-        public static final int radioButton2=0x7f09000c;
-        public static final int relativeLayout1=0x7f09000b;
-        public static final int textView1=0x7f09000e;
+        public static final int layout1_1_1_vue_saisir_mdp=0x7f09000c;
+        public static final int layout1_1_2_vue_saisir_mdp=0x7f090010;
+        public static final int layout1_1_vue_saisir_mdp=0x7f09000b;
+        public static final int radioButton1=0x7f09000e;
+        public static final int radioButton2=0x7f09000f;
         public static final int zoneSaisieVueCacherTexte=0x7f090009;
     }
     public static final class layout {

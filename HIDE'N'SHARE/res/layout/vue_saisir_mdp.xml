@@ -1,64 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+     android:background="@drawable/fond">
 
-    <TextView
-        android:id="@+id/TexteVueCacher"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:background="@color/fondTexte"
-        android:text="La donnée est-elle compressée ?"
-        android:textColor="@color/couleurTexte"
-        android:textSize="25sp" />
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout1"
+	<RelativeLayout        
+	    android:id="@+id/layout1_1_vue_saisir_mdp"
         android:layout_width="@dimen/dimenssionCentre"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_centerVertical="true" >
-    </RelativeLayout>
-
-    <RadioButton
-        android:id="@+id/radioButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/relativeLayout1"
-        android:layout_alignLeft="@+id/radioButton1"
-        android:layout_marginBottom="21dp"
-        android:text="non" />
-
-    <RadioButton
-        android:id="@+id/radioButton1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/radioButton2"
-        android:layout_centerHorizontal="true"
-        android:text="oui" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/relativeLayout1"
-        android:layout_centerHorizontal="true"
-        android:text="Saisir le mot de passe : "
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
-        android:ems="10"
-        android:inputType="textPassword" >
-
-        <requestFocus />
-    </EditText>
+        android:layout_centerVertical="true">
+			
+		<RelativeLayout
+	        android:id="@+id/layout1_1_1_vue_saisir_mdp"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content">
+	        
+	        <TextView
+	        	android:id="@+id/Texte1VueCacher"
+	        	android:text="La donnée est-elle compressée ?"
+	        	android:layout_width="wrap_content"
+	        	android:layout_height="wrap_content"
+	        	android:layout_alignParentTop="true"
+	        	android:layout_centerInParent="true"
+	        	android:textSize="@dimen/tailleTexteEnHaut"
+	        	android:textColor="@color/couleurTexte"
+	        	android:gravity="center"/>
+	        
+		    <RadioButton
+		        android:id="@+id/radioButton1"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+	            android:layout_below="@id/Texte1VueCacher"
+	            android:background="@color/bgBouton"
+	        	android:textColor="@color/couleurTexte"
+		        android:text="non" />
+		
+		    <RadioButton
+		        android:id="@+id/radioButton2"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+	            android:layout_below="@id/radioButton1"
+	            android:background="@color/bgBouton"
+	        	android:textColor="@color/couleurTexte"
+		        android:text="oui" />
+		</RelativeLayout>
+		
+		<RelativeLayout
+		    android:id="@+id/layout1_1_2_vue_saisir_mdp"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@id/layout1_1_1_vue_saisir_mdp">
+		    
+		    <TextView
+		        android:id="@+id/Texte2VueCacher"
+		        android:text="Saisir le mot de passe :\n(laisser vide si aucun mots de passe)"
+	        	android:layout_width="wrap_content"
+	        	android:layout_height="wrap_content"
+	        	android:layout_alignParentTop="true"
+	        	android:layout_centerInParent="true"
+	        	android:textSize="15sp"
+	        	android:textColor="@color/couleurTexte"
+	        	android:gravity="center"/>
+		
+		    <EditText
+				android:id="@+id/zoneSaisieVueCacherTexte"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:background="@color/white"
+	            android:layout_below="@id/Texte2VueCacher"/>
+		</RelativeLayout>
+	  
+	</RelativeLayout>
 
 </RelativeLayout>

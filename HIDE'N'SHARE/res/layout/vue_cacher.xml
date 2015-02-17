@@ -10,9 +10,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
-        android:textSize="25sp"
-        android:background="@color/fondTexte"
+        android:textSize="@dimen/tailleTexteEnHaut"
         android:textColor="@color/couleurTexte"
+        android:gravity="center"
         android:id="@+id/TexteVueCacher"/>
 
 
@@ -27,28 +27,36 @@
                 android:id="@+id/boutonVueCacherPhotoExistant"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="photo existante"/>
+                android:text="photo existante"
+                android:background="@color/bgBouton"
+            	android:textColor="@color/white"/>
 
             <Button
                 android:id="@+id/boutonVueCacherPhotoAPrendre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="photo a prendre"
-                android:layout_below="@id/boutonVueCacherPhotoExistant"/>
+                android:layout_below="@id/boutonVueCacherPhotoExistant"
+                android:background="@color/bgBouton"
+            	android:textColor="@color/white"/>
 
             <Button
                 android:id="@+id/boutonVueCacherFichierQuelconque"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="fichier quelconque"
-                android:layout_below="@id/boutonVueCacherPhotoAPrendre"/>
+                android:layout_below="@id/boutonVueCacherPhotoAPrendre"
+                android:background="@color/bgBouton"
+            	android:textColor="@color/white"/>
 
             <Button
                 android:id="@+id/boutonVueCacherCacherTexte"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="fichier quelconque"
-                android:layout_below="@id/boutonVueCacherFichierQuelconque"/>
+                android:layout_below="@id/boutonVueCacherFichierQuelconque"
+                android:background="@color/bgBouton"
+            	android:textColor="@color/white"/>
     </RelativeLayout>
 
 </RelativeLayout>

@@ -11,9 +11,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
-        android:textSize="25sp"
-        android:background="@color/fondTexte"
+        android:textSize="@dimen/tailleTexteEnHaut"
         android:textColor="@color/couleurTexte"
+        android:gravity="center"
         android:id="@+id/TexteVueCacher"/>
 
     <RelativeLayout
@@ -33,7 +33,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Valider"
-            android:layout_below="@id/zoneSaisieVueCacherTexte"/>
+            android:layout_below="@id/zoneSaisieVueCacherTexte"
+            android:background="@color/bgBouton"
+            android:textColor="@color/white"/>
 
 
     </RelativeLayout>
