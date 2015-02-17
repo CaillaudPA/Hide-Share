@@ -42,6 +42,7 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
 			
 		}else if(arg0.equals(photoAPrendre)){
 			//activité apareil photo puis retours sur l'activité choix_enveloppe apres avoirs pris la photo
+			
 		}else if(arg0.equals(fichierQuelconque)){
 			//activité gestionnaire de fichier puis retours vers choix_enveloppe
 			
