@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
      android:background="@drawable/fond">
 
-	<RelativeLayout        
+	<GridLayout        
 	    android:id="@+id/layout1_1_vue_saisir_mdp"
         android:layout_width="@dimen/dimenssionCentre"
         android:layout_height="wrap_content"
@@ -71,6 +71,6 @@
 	            android:layout_below="@id/Texte2VueCacher"/>
 		</RelativeLayout>
 	  
-	</RelativeLayout>
+	</GridLayout>
 
 </RelativeLayout>

@@ -1,23 +1,27 @@
 package com.hide_n_share.android;
 
 import android.app.Activity;
-import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.os.Build;
+import android.widget.Button;
 
-public class Acceuil extends Activity {
+public class Acceuil extends Activity implements OnClickListener{
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_acceuil);
 
+		 Button button = (Button)findViewById(R.id.boutonAcceuilDissimuler);
+	     button.setOnClickListener(this);
+	        
 		if (savedInstanceState == null) {
 			getFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
@@ -59,6 +63,13 @@ public class Acceuil extends Activity {
 					container, false);
 			return rootView;
 		}
+	}
+
+	@Override
+	public void onClick(View arg0) {
+		Intent intent = new Intent(Acceuil.this, Vue_saisir_mdp_Activity.class);
+		startActivity(intent);
+		
 	}
 
 }

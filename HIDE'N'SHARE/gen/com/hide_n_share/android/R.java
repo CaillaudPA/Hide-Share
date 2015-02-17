@@ -57,7 +57,7 @@ public final class R {
         public static final int prendrePhoto=0x7f090005;
         public static final int radioButton1=0x7f090011;
         public static final int radioButton2=0x7f090012;
-        public static final int repertoirePhoto=0x7f090006;
+        public static final int repertoirephoto=0x7f090006;
         public static final int texteChoixEnveloppe=0x7f090004;
         public static final int zoneSaisieVueCacherTexte=0x7f09000c;
     }

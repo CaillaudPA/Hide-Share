@@ -23,7 +23,7 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/repertoirePhoto"
+        android:id="@+id/repertoirephoto"
         android:src="@drawable/repertoirephoto"
         android:layout_alignBottom="@+id/prendrePhoto"
         android:layout_alignParentRight="true"
