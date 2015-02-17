@@ -14,13 +14,19 @@ import android.widget.Button;
 
 public class Acceuil extends Activity implements OnClickListener{
 
+	private Button boutonCacher;
+	private Button boutonDevoiler;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_acceuil);
 
-		 Button button = (Button)findViewById(R.id.boutonAcceuilDissimuler);
-	     button.setOnClickListener(this);
+		 boutonCacher = (Button)findViewById(R.id.boutonAcceuilDissimuler);
+		 boutonCacher.setOnClickListener(this);
+		 
+		 boutonDevoiler = (Button)findViewById(R.id.boutonAcceuilDevoiler);
+		 boutonDevoiler.setOnClickListener(this);
 	        
 		if (savedInstanceState == null) {
 			getFragmentManager().beginTransaction()
@@ -67,8 +73,15 @@ public class Acceuil extends Activity implements OnClickListener{
 
 	@Override
 	public void onClick(View arg0) {
-		Intent intent = new Intent(Acceuil.this, Vue_saisir_mdp_Activity.class);
-		startActivity(intent);
+		
+		if(arg0.equals(boutonCacher)){
+			Intent intent = new Intent(Acceuil.this, Vue_cacher_Activity.class);
+			startActivity(intent);
+		}else
+		{
+			Intent intent = new Intent(Acceuil.this, Vue_saisir_mdp_Activity.class);
+			startActivity(intent);
+		}
 		
 	}
 
