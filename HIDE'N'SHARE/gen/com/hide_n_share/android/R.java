@@ -11,9 +11,11 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
+        public static final int bgBouton=0x7f060002;
+        public static final int black=0x7f060004;
         public static final int couleurTexte=0x7f060001;
         public static final int fondTexte=0x7f060000;
-        public static final int white=0x7f060002;
+        public static final int white=0x7f060003;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -26,6 +28,7 @@ public final class R {
         public static final int activity_horizontal_margin=0x7f040000;
         public static final int activity_vertical_margin=0x7f040001;
         public static final int dimenssionCentre=0x7f040002;
+        public static final int tailleTexteEnHaut=0x7f040003;
     }
     public static final class drawable {
         public static final int fond=0x7f020000;
@@ -33,16 +36,16 @@ public final class R {
     }
     public static final class id {
         public static final int TexteVueCacher=0x7f090004;
-        public static final int acceuilTexte=0x7f090000;
+        public static final int acceuilTexte=0x7f090001;
         public static final int action_settings=0x7f090010;
-        public static final int boutonAcceuilDevoiler=0x7f090001;
-        public static final int boutonAcceuilDissimuler=0x7f090002;
+        public static final int boutonAcceuilDevoiler=0x7f090002;
+        public static final int boutonAcceuilDissimuler=0x7f090003;
         public static final int boutonVueCacherCacherTexte=0x7f090008;
         public static final int boutonVueCacherFichierQuelconque=0x7f090007;
         public static final int boutonVueCacherPhotoAPrendre=0x7f090006;
         public static final int boutonVueCacherPhotoExistant=0x7f090005;
         public static final int boutonVueCacherTexteValide=0x7f09000a;
-        public static final int container=0x7f090003;
+        public static final int container=0x7f090000;
         public static final int editText1=0x7f09000f;
         public static final int radioButton1=0x7f09000d;
         public static final int radioButton2=0x7f09000c;

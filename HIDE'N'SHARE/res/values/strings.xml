@@ -7,10 +7,15 @@
 
 
     <string name="dissimulerDonneeMenu">Dissimuler des données</string>
-    <color name="fondTexte">#00FF00</color>
-    <color name="couleurTexte">#FF0000</color>
+    <color name="fondTexte">#FF00FF</color>
+    <color name="couleurTexte">#FFFFFF</color>
+    <color name="bgBouton">#BB000000</color>
+    
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
     <dimen name="dimenssionCentre">250dp</dimen>
+    
+    <dimen name="tailleTexteEnHaut">25dp</dimen>
 
 
 

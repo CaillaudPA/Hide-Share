@@ -36,13 +36,6 @@ public class application {
 		return lectureClavier.nextLine();
 	}
 	
-	private static String cheminDestination(){
-		System.out.println("Chemin où est sauvegardé la lettre :");
-		String reponse = lectureClavier.nextLine();
-		return reponse;
-		
-	}
-	
 	//image
 	//choix cacher ou dévoiler
 	private static String cacheOuDevoile(){
@@ -123,20 +116,6 @@ public class application {
 		return lectureClavier.nextLine();
 	}
 	
-	private static boolean lettreCompresser(){
-		System.out.println("La lettre est compresser ? (oui/non)");
-		
-		String reponse = lectureClavier.nextLine();
-		
-		while(!((reponse.equals("oui")) || (reponse.equals("non")))){
-			System.out.println("Répondre par oui ou par non");
-			reponse = lectureClavier.nextLine();
-		}
-		if(reponse.equals("oui"))
-			return true;
-		else
-			return false;
-	}
 	
 	private static String mdpDevoiler(){
 		System.out.println("Entrer mdp de chiffrement de la lettre: ");
