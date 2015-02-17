@@ -16,7 +16,7 @@
     <dimen name="dimenssionCentre">250dp</dimen>
     
     <dimen name="tailleTexteEnHaut">25sp</dimen>
-
+    <dimen name="espaceBouton">10dp</dimen>
 
 
 </resources>
