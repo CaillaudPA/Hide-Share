@@ -75,11 +75,11 @@ public class Acceuil extends Activity implements OnClickListener{
 	public void onClick(View arg0) {
 		
 		if(arg0.equals(boutonCacher)){
-			Intent intent = new Intent(Acceuil.this, Vue_cacher_Activity.class);
+			Intent intent = new Intent(this, Vue_cacher_Activity.class);
 			startActivity(intent);
 		}else
 		{
-			Intent intent = new Intent(Acceuil.this, Vue_saisir_mdp_Activity.class);
+			Intent intent = new Intent(this, Vue_saisir_mdp_Activity.class);
 			startActivity(intent);
 		}
 		

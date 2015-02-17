@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-     android:background="@drawable/fond">
+     android:background="@drawable/fond"
+     android:id="@+id/vue_saisir_mdp">
 
 	<GridLayout        
 	    android:id="@+id/layout1_1_vue_saisir_mdp"
@@ -83,10 +84,10 @@
 		    
 		    <TextView
 		        android:id="@+id/Texte2VueCacher"
-		        android:text="Saisir le mot de passe :\n(laisser vide si aucun mots de passe)"
-	        	android:layout_width="wrap_content"
+		        android:text="Saisir le mot de passe :"
+	        	android:layout_width="match_parent"
 	        	android:layout_height="wrap_content"
-	        	android:textSize="15sp"
+	        	android:textSize="20sp"
 	        	android:textColor="@color/couleurTexte"
 	        	android:gravity="center"
 				android:layout_column="0"
@@ -101,13 +102,12 @@
 		    <EditText
 				android:id="@+id/zoneSaisieVueCacherTexte"
         		android:layout_width="@dimen/dimenssionCentre"
-	            android:layout_height="20dp"
+	            android:layout_height="match_parent"
 	            android:background="@color/white"
 	            android:layout_column="0"
-            	android:layout_row="2"/>
-		    
+            	android:layout_row="2"
+            	android:hint="laisser vide si aucun mdp"/>
 		</GridLayout>
-	  
 	</GridLayout>
 
 </RelativeLayout>
