@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">HIDE'N'SHARE</string>
+    <string name="action_settings">Settings</string>
+    <string name="dissimulerDonneeMenu">Dissimuler des données</string>
+
+    <color name="fondTexte">#00FF00</color>
+    <color name="couleurTexte">#FF0000</color>
+    <color name="white">#FFFFFF</color>
+    <dimen name="dimenssionCentre">250dp</dimen>
+
+</resources>
