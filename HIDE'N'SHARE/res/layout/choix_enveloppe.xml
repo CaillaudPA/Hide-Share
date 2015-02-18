@@ -5,15 +5,32 @@
     android:background="@string/fond"
     android:id="@+id/choix_enveloppe">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/texteChoixEnveloppe"
-        android:text="Choisissez l'image dans laquelle cacher vos données"
-        android:textColor="@color/couleurTexte"
-        android:textSize="25sp"
-        android:gravity="center"/>
-
+     <GridLayout 
+	    android:layout_alignParentTop="true"
+		android:layout_centerInParent="true"
+	    android:layout_width="@dimen/dimenssionCentre"
+	    android:layout_height="wrap_content"
+	    android:columnCount="1"
+        android:rowCount="2" >
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_column="0"
+            android:layout_row="0" />
+	    
+        <TextView
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:gravity="center"
+	        android:text="Choisissez l'image dans laquelle cacher vos données"
+	        android:textColor="@color/couleurTexte"
+	        android:textSize="@dimen/tailleTexteEnHaut"
+	        android:layout_column="0"
+            android:layout_row="1" />
+	        
+    </GridLayout>    
+    
     <ImageButton
         android:id="@+id/prendrePhoto"
         android:layout_width="wrap_content"

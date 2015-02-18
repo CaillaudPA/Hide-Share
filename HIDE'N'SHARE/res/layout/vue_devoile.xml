@@ -4,18 +4,35 @@
 	android:layout_height="match_parent"
 	android:background="@string/fond"
 	android:id="@+id/vue_devoile">
-
-    <TextView
-		android:text="Choisissez l'image ou se trouve les données"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_alignParentTop="true"
-		android:layout_centerInParent="true"
-        android:textSize="@dimen/tailleTexteEnHaut"
-        android:textColor="@color/couleurTexte"
-        android:gravity="center"
-		android:id="@+id/TexteVueCacher"/>
 	
+	<GridLayout 
+	    android:layout_alignParentTop="true"
+		android:layout_centerInParent="true"
+	    android:layout_width="@dimen/dimenssionCentre"
+	    android:layout_height="wrap_content"
+	    android:columnCount="1"
+        android:rowCount="2" >
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_column="0"
+            android:layout_row="0" />
+	    
+        <TextView
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:gravity="center"
+	        android:text="Choisissez l'image ou se trouve les données"
+	        android:textColor="@color/couleurTexte"
+	        android:textSize="@dimen/tailleTexteEnHaut"
+	        android:layout_column="0"
+            android:layout_row="1" />
+	        
+    </GridLayout>
+    
+    
+    
 	<RelativeLayout
 		android:layout_width="@dimen/dimenssionCentre"
 		android:layout_height="wrap_content"
