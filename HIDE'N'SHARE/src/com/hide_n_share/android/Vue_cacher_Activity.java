@@ -47,7 +47,7 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
 			//activité gestionnaire de fichier puis retours vers choix_enveloppe
 			
 		}else{
-			Intent intent = new Intent(this, Vue_saisir_mdp_Activity.class);
+			Intent intent = new Intent(this, Vue_cacher_texte.class);
 			startActivity(intent);
 			
 		}
