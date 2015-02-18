@@ -14,7 +14,7 @@ public class popupErreur extends DialogFragment {
 		 builder.setMessage("message d'erreur")
 		 	.setPositiveButton("quitter l'aplication", new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int id) {
-                       //action bouton
+                       //quitter l'application 
                    }}).setNegativeButton("retour a l'acceuil", new DialogInterface.OnClickListener() {
                        public void onClick(DialogInterface dialog, int id) {
                            // lancer l'activité acceuil
@@ -22,6 +22,5 @@ public class popupErreur extends DialogFragment {
                    });		
 		 return builder.create();
 	}
-
 	
 }
