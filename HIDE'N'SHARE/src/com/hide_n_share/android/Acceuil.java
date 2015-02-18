@@ -82,7 +82,6 @@ public class Acceuil extends Activity implements OnClickListener{
 			Intent intent = new Intent(this, Vue_saisir_mdp_Activity.class);
 			startActivity(intent);
 		}
-		
 	}
 
 }
