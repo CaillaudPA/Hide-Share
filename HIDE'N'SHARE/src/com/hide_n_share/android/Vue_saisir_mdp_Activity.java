@@ -28,6 +28,7 @@ public class Vue_saisir_mdp_Activity extends Activity implements OnClickListener
         // Check which radio button was clicked
         if(view.equals(radioOui) && radioNon.isChecked()) {
         	radioNon.setChecked(false);
+        	radioOui.setChecked(false);
         }else
         {
         	radioOui.setChecked(false);

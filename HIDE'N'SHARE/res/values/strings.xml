@@ -4,12 +4,13 @@
     <string name="app_name">HIDE\'N\'SHARE</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="fond">@drawable/fond</string>
 
 
     <string name="dissimulerDonneeMenu">Dissimuler des données</string>
     <color name="fondTexte">#FF00FF</color>
-    <color name="couleurTexte">#FFFFFF</color>
-    <color name="bgBouton">#BB000000</color>
+    <color name="couleurTexte">#222222</color>
+    <color name="bgBouton">#AA444444</color>
     
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
