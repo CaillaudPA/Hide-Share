@@ -12,14 +12,21 @@ public class Vue_choix_enveloppe_Activity extends Activity implements OnClickLis
 	private Button galerie;
 	private Button photo;
 	
+	
+	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choix_enveloppe);
-    }
+
+	}
 	
 	@Override
 	public void onClick(View arg0) {
+		if(arg0.equals(galerie)){
+			
+		}else if(arg0.equals(photo)){
 
+		}
 	}
 }

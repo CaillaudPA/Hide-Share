@@ -6,10 +6,9 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 
 public class PopupErreur extends DialogFragment {
-	private String msg = "erreur non définie";
+	private String msg = "message non définie";
 	
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 		 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -27,12 +26,23 @@ public class PopupErreur extends DialogFragment {
                     	   getActivity().startActivityForResult(intent, 0);
                     	   System.exit(0);
                        }
-                   });		
+                   });	 
 		 return builder.create();
+	}
+	
+	public void setIcone(){
+		
 	}
 	
 	public void setMsg(String msgErreur){
 		this.msg = msgErreur;
+	}
+	
+	public void setMsg(boolean msgErreur){
+		if (msgErreur)
+			this.msg = "true";
+		else
+			this.msg = "false";
 	}
 	
 }

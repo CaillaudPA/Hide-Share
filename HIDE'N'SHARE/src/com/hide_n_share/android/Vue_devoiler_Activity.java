@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+
 public class Vue_devoiler_Activity extends Activity implements OnClickListener {
 
 	private Button selectImage;
@@ -16,10 +17,9 @@ public class Vue_devoiler_Activity extends Activity implements OnClickListener {
 		setContentView(R.layout.vue_devoile);
 		
 		FragmentManager fm = getFragmentManager();
-		
 		PopupErreur a = new PopupErreur();
 		a.setMsg("aa");
-		a.show(fm, "test");
+		a.show(fm, "test");		
 	}
 	
 	@Override
