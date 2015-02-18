@@ -31,6 +31,7 @@ public class Vue_cacher_texte_Activity extends Activity implements OnClickListen
 		if(arg0.equals(valider)){
 			Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
 			startActivity(intent);
+			finish();
 		}
 		
 	}

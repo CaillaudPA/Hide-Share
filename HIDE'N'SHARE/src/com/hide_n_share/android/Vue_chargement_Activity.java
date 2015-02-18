@@ -12,8 +12,6 @@ public class Vue_chargement_Activity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vue_chargement);
-    
-        //mProgress = (ProgressBar)findViewById(R.id.);
     }
 	
 
