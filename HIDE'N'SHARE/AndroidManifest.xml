@@ -24,6 +24,7 @@
         </activity>
         <activity android:name=".Vue_saisir_mdp_Activity"/>
         <activity android:name=".Vue_cacher_Activity"/>
+        <activity android:name=".Vue_cacher_texte"/>
     </application>
 
 </manifest>
