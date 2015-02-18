@@ -16,6 +16,9 @@ public class Vue_cacher_texte_Activity extends Activity implements OnClickListen
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vue_cacher_texte);
+        
+		valider = (Button)findViewById(R.id.boutonVueCacherTexteValide);
+		valider.setOnClickListener(this);
     }
 	
 	@Override
