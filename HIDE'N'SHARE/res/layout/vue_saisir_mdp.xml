@@ -118,7 +118,7 @@
                 android:id="@+id/boutonVueCacherCacherTexte"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Validé"
+                android:text="Valider"
                 android:background="@color/bgBouton"
             	android:textColor="@color/white"
             	android:layout_column="0"
