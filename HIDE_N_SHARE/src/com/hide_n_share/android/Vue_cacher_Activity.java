@@ -1,6 +1,7 @@
 package com.hide_n_share.android;
 
 import android.app.Activity;
+import android.app.DownloadManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -45,6 +46,7 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
 			
 		}else if(arg0.equals(fichierQuelconque)){
 			//activité gestionnaire de fichier puis retours vers choix_enveloppe
+			startActivity(new Intent(DownloadManager.ACTION_VIEW_DOWNLOADS));
 			
 		}else{
 			Intent intent = new Intent(this, Vue_cacher_texte_Activity.class);

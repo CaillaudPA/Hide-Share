@@ -3,6 +3,10 @@
     package="com.hide_n_share.android"
     android:versionCode="1"
     android:versionName="1.0" >
+    
+    <uses-feature android:name="android.hardware.camera"
+                  android:required="true" />
+    
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -29,5 +33,6 @@
         <activity android:name=".Vue_devoiler_Activity"/>
         
     </application>
+    
 
 </manifest>

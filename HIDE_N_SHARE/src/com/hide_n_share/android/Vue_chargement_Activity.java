@@ -7,14 +7,17 @@ import android.widget.ProgressBar;
 public class Vue_chargement_Activity extends Activity{
 
 	private ProgressBar mProgress;
+	private int progression = 0;
 	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vue_chargement);
     
-        //mProgress = (ProgressBar)findViewById(R.id.);
+        mProgress = (ProgressBar)findViewById(R.id.progressBar2);
     }
+	
+	
 	
 
 }
