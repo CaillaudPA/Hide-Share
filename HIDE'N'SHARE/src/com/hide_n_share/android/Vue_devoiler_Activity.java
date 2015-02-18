@@ -16,10 +16,8 @@ public class Vue_devoiler_Activity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.vue_devoile);
 		
-		FragmentManager fm = getFragmentManager();
-		PopupErreur a = new PopupErreur();
-		a.setMsg("aa");
-		a.show(fm, "test");		
+		new PopupErreur().display(this, "test erreur");
+	
 	}
 	
 	@Override

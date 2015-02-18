@@ -1,8 +1,10 @@
 package com.hide_n_share.android;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -44,5 +46,16 @@ public class PopupErreur extends DialogFragment {
 		else
 			this.msg = "false";
 	}
+	
+	public void display(Activity fm,String texte){	
+		this.setMsg(texte);
+		this.show(fm.getFragmentManager(), "test");	
+	}
+	
+	public void display(Activity fm,boolean bool){	
+		this.setMsg(bool);
+		this.show(fm.getFragmentManager(), "test");	
+	}
+	
 	
 }
