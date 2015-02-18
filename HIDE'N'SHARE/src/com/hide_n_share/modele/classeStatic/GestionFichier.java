@@ -34,20 +34,4 @@ public class GestionFichier{
 			System.out.println(e);
 		}
 	}
-	
-	
-	//affiche toute les valeur d'un tableau de byte
-	public static String toStringBytes(byte[] octets){
-		String aRetourner = "[";
-		for(int i = 0;i<octets.length;i++){
-			if (i == 0){
-				aRetourner += " "+octets[i];
-			}else{
-				aRetourner += ", "+octets[i];
-			}
-		}
-		
-		aRetourner += "]";
-		return aRetourner;
-	}
 }
