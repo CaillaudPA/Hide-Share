@@ -25,7 +25,9 @@
         <activity android:name=".Vue_saisir_mdp_Activity"/>
         <activity android:name=".Vue_cacher_Activity"/>
         <activity android:name=".Vue_cacher_texte_Activity"/>
-        <activity android:name=".Vue_choix_enveloppe_Activity"/>        
+        <activity android:name=".Vue_choix_enveloppe_Activity"/>
+        <activity android:name=".Vue_devoiler_Activity"/>
+        
     </application>
 
 </manifest>

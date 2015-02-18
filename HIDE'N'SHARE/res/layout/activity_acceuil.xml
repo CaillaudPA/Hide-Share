@@ -6,6 +6,23 @@
     android:background="@string/fond"
     android:orientation="vertical" >
 
+    <GridLayout >
+        <TextView
+	        android:id="@+id/acceuilTexte"
+	        android:layout_width="@dimen/dimenssionCentre"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/gridLayout1"
+	        android:layout_alignParentTop="true"
+	        android:gravity="center"
+	        android:text="Choisissez l&apos;action à effectuer"
+	        android:textColor="@color/couleurTexte"
+	        android:textSize="@dimen/tailleTexteEnHaut" />
+	        
+    </GridLayout>
+    
+
+    
+    
     <GridLayout
         android:id="@+id/gridLayout1"
         android:layout_width="@dimen/dimenssionCentre"
@@ -42,16 +59,5 @@
             android:text="@string/dissimulerDonneeMenu"
             android:textColor="@color/white" />
     </GridLayout>
-
-    <TextView
-        android:id="@+id/acceuilTexte"
-        android:layout_width="@dimen/dimenssionCentre"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/gridLayout1"
-        android:layout_alignParentTop="true"
-        android:gravity="center"
-        android:text="Choisissez l&apos;action à effectuer"
-        android:textColor="@color/couleurTexte"
-        android:textSize="@dimen/tailleTexteEnHaut" />
 
 </RelativeLayout>
