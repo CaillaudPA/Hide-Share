@@ -49,7 +49,7 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
 		}else{
 			Intent intent = new Intent(this, Vue_cacher_texte_Activity.class);
 			startActivity(intent);
-			
+			finish();
 		}
 	} 
 
