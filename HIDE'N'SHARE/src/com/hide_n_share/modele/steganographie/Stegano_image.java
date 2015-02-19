@@ -419,7 +419,7 @@ public class Stegano_image extends Steganographie{
 		return aRetourner;
 	}
 	
-	private void ecrireImage(File file, Bitmap img){
+	public void ecrireImage(File file, Bitmap img){
 		FileOutputStream out = null;
 		try {
 		    out = new FileOutputStream(file);
