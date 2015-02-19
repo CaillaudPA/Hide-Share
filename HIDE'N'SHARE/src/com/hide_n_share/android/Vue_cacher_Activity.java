@@ -3,25 +3,17 @@ package com.hide_n_share.android;
 import java.io.File;
 
 import com.hide_n_share.modele.classeStatic.GestionFichier;
-import com.hide_n_share.modele.steganographie.Stegano_image;
 
 import android.app.Activity;
-import android.app.DownloadManager;
-import android.app.FragmentManager;
 import android.content.ContentValues;
-import android.content.CursorLoader;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ImageView;
 
 public class Vue_cacher_Activity extends Activity implements OnClickListener {
 	
