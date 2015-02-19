@@ -43,10 +43,12 @@ public final class R {
         public static final int Texte1VueCacher=0x7f09001d;
         public static final int Texte2VueCacher=0x7f090021;
         public static final int TexteVueCacher=0x7f09000d;
-        public static final int action_settings=0x7f090022;
+        public static final int action_settings=0x7f090023;
+        public static final int action_test=0x7f090024;
         public static final int boutonAcceuilDevoiler=0x7f090002;
         public static final int boutonAcceuilDissimuler=0x7f090003;
         public static final int boutonRetourVueChiffrement=0x7f090017;
+        public static final int boutonTest=0x7f090022;
         public static final int boutonValiderVueChiffrement=0x7f090018;
         public static final int boutonVueCacherCacherTexte=0x7f09000b;
         public static final int boutonVueCacherFichierQuelconque=0x7f09000a;
@@ -87,6 +89,7 @@ public final class R {
         public static final int vue_chiffrement_compression=0x7f030007;
         public static final int vue_devoile=0x7f030008;
         public static final int vue_saisir_mdp=0x7f030009;
+        public static final int vue_test=0x7f03000a;
     }
     public static final class menu {
         public static final int acceuil=0x7f080000;
