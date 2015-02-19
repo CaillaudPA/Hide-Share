@@ -60,19 +60,8 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
             Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
             intent.setType("image/*");
             startActivityForResult(Intent.createChooser(intent,"Select exisiting image"), 1);
-            image.setImageBitmap(null);
-            note.setText("by Returned Uri");
-            
-            try {
-             Bitmap bm = BitmapFactory.decodeStream(
-               getContentResolver().openInputStream(orgUri));
-             image.setImageBitmap(bm); 
-            } catch (FileNotFoundException e) {
-             e.printStackTrace(); 
-            }
-            
-        	}
-		
+		}
+	
 		else if(arg0.equals(photoAPrendre)){
 				String fileName = "imageCamera.jpg";
 				//create parameters for Intent with filename
@@ -121,16 +110,8 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
        if (resultCode == RESULT_OK) {
             if (requestCode == 1) {	
-                //imageUri = data.getData();
-            	image.setImageBitmap(null);
-            	  
-            	   convertedPath = getRealPathFromURI(orgUri);
-            	   text2.setText("Real Path: " + convertedPath + "\n");
-            	   
-            	   //Uri convert back again from path
-            	   uriFromPath = Uri.fromFile(new File(convertedPath));
-            	   text3.setText("Back Uri: " + uriFromPath.toString() + "\n");
-                
+                imageUri = data.getData();
+            	                
                 FragmentManager fm = getFragmentManager();
         		PopupErreur a = new PopupErreur();
         		a.setMsg(getRealPathFromURI(imageUri));
