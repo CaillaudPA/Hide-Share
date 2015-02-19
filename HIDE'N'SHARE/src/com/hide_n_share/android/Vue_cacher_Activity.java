@@ -84,11 +84,8 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
 		}else{
 			Intent intent = new Intent(this, Vue_cacher_texte_Activity.class);
 			startActivity(intent);
-<<<<<<< HEAD
 			finish();		
-=======
-			finish();
->>>>>>> d19a34346c2d5954385c902b8789fbad154a5718
+
 		}
 	} 
 	
