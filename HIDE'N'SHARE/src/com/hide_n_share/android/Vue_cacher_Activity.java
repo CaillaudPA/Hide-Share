@@ -28,7 +28,7 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
 	private Button cacherTexte;
 	private Uri imageUri;
 	
-	final String EXTRA_PATH_CHEMIN = "path_chemin";
+	final String EXTRA_LETTRE = "enveloppe";
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -99,25 +99,25 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
             if (requestCode == 1) {	
                 imageUri = data.getData();
                 
-                FragmentManager fm = getFragmentManager();
-        		PopupErreur a = new PopupErreur();
-        		a.setMsg(imageUri.getPath());
-        		a.show(fm, "test");
+				Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
+				intent.putExtra(EXTRA_LETTRE,imageUri.getPath());
+				startActivity(intent);
+				finish();
             }
             if (requestCode == 2) {	
                 imageUri = data.getData();
                 
-                FragmentManager fm = getFragmentManager();
-        		PopupErreur a = new PopupErreur();
-        		a.setMsg(imageUri.getPath());
-        		a.show(fm, "test");
+				Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
+				intent.putExtra(EXTRA_LETTRE,imageUri.getPath());
+				startActivity(intent);
+				finish();
             }
             if (requestCode == 3) {	
                 
-                FragmentManager fm = getFragmentManager();
-        		PopupErreur a = new PopupErreur();
-        		a.setMsg(imageUri.getPath());
-        		a.show(fm, "test");
+    			Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
+				intent.putExtra(EXTRA_LETTRE,imageUri.getPath());
+				startActivity(intent);
+				finish();
             }
         }
     }
