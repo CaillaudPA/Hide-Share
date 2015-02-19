@@ -2,6 +2,9 @@ package com.hide_n_share.android;
 
 import java.io.File;
 
+import com.hide_n_share.modele.classeStatic.GestionFichier;
+import com.hide_n_share.modele.steganographie.Stegano_image;
+
 import android.app.Activity;
 import android.app.DownloadManager;
 import android.app.FragmentManager;
@@ -53,15 +56,20 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
 		if(arg0.equals(photoExist)){
-			
-			/*Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.setAction(Intent.ACTION_GET_CONTENT);
-            startActivityForResult(Intent.createChooser(intent,"Select Picture"), 1);*/
             
             Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
             intent.setType("image/*");
             startActivityForResult(Intent.createChooser(intent,"Select exisiting image"), 1);
+            image.setImageBitmap(null);
+            note.setText("by Returned Uri");
+            
+            try {
+             Bitmap bm = BitmapFactory.decodeStream(
+               getContentResolver().openInputStream(orgUri));
+             image.setImageBitmap(bm); 
+            } catch (FileNotFoundException e) {
+             e.printStackTrace(); 
+            }
             
         	}
 		
@@ -88,35 +96,60 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
              startActivityForResult(Intent.createChooser(intent,"Select File"), 2);
 			
 		}else{
-			Intent intent = new Intent(this, Vue_cacher_texte_Activity.class);
+			/*Intent intent = new Intent(this, Vue_cacher_texte_Activity.class);
 			startActivity(intent);
-			finish();		
+			finish();*/
+			
+			File file = new  File("storage/emulated/0/download/test_file.txt");
+    		GestionFichier.fluxEnFichier(file.getPath(),"sdfzff".getBytes());
+    		new PopupErreur().display(this,new String(GestionFichier.fichierEnFlux(file.getPath())));
 		}
 	} 
+	
+	public String getRealPathFromURI (Uri contentUri) {
+	    String path = null;
+	    String[] proj = { MediaStore.MediaColumns.DATA };
+	    Cursor cursor = getContentResolver().query(contentUri, proj, null, null, null);
+	    if (cursor.moveToFirst()) {
+	       int column_index = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA);
+	       path = cursor.getString(column_index);
+	    }
+	    cursor.close();
+	    return path;
+	}
 	
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
        if (resultCode == RESULT_OK) {
             if (requestCode == 1) {	
-                imageUri = data.getData();
+                //imageUri = data.getData();
+            	image.setImageBitmap(null);
+            	  
+            	   convertedPath = getRealPathFromURI(orgUri);
+            	   text2.setText("Real Path: " + convertedPath + "\n");
+            	   
+            	   //Uri convert back again from path
+            	   uriFromPath = Uri.fromFile(new File(convertedPath));
+            	   text3.setText("Back Uri: " + uriFromPath.toString() + "\n");
                 
                 FragmentManager fm = getFragmentManager();
         		PopupErreur a = new PopupErreur();
-        		a.setMsg(imageUri.getPath());
+        		a.setMsg(getRealPathFromURI(imageUri));
         		a.show(fm, "test");
+
             }
             if (requestCode == 2) {	
                 imageUri = data.getData();
                 
                 FragmentManager fm = getFragmentManager();
         		PopupErreur a = new PopupErreur();
-        		a.setMsg(imageUri.getPath());
+        		a.setMsg(getRealPathFromURI(imageUri));
         		a.show(fm, "test");
             }
             if (requestCode == 3) {	
                 
                 FragmentManager fm = getFragmentManager();
         		PopupErreur a = new PopupErreur();
-        		a.setMsg(imageUri.getPath());
+        		a.setMsg(getRealPathFromURI(imageUri));
         		a.show(fm, "test");
             }
         }
