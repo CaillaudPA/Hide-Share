@@ -33,7 +33,7 @@ public class Vue_cacher_texte_Activity extends Activity implements OnClickListen
 		zoneSaisie = (EditText)findViewById(R.id.zoneSaisieVueCacherTexte);
     }
 	
-	@Override
+	
 	public void onClick(View arg0) {
 		
 		if(arg0.equals(valider)){

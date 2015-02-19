@@ -20,7 +20,6 @@ public class Vue_devoiler_Activity extends Activity implements OnClickListener {
 	
 	}
 	
-	@Override
 	public void onClick(View arg0) {
 
 	}

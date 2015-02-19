@@ -51,6 +51,12 @@ public class Acceuil extends Activity implements OnClickListener{
 		if (id == R.id.action_settings) {
 			return true;
 		}
+		if (id == R.id.action_test) {
+			//new PopupErreur().display(this, "tamer");
+			Intent intent = new Intent(this, test_activity.class);
+			startActivity(intent);
+			finish();
+		}
 		return super.onOptionsItemSelected(item);
 	}
 
@@ -71,7 +77,6 @@ public class Acceuil extends Activity implements OnClickListener{
 		}
 	}
 
-	@Override
 	public void onClick(View arg0) {
 		
 		if(arg0.equals(boutonCacher)){
