@@ -20,7 +20,7 @@ public class Vue_cacher_texte_Activity extends Activity implements OnClickListen
 	private EditText zoneSaisie;
 	
 	
-	final String EXTRA_PATH_CHEMIN = "path_chemin";
+	final String EXTRA_LETTRE = "enveloppe";
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,17 +33,15 @@ public class Vue_cacher_texte_Activity extends Activity implements OnClickListen
 		zoneSaisie = (EditText)findViewById(R.id.zoneSaisieVueCacherTexte);
     }
 	
-	@Override
+	
 	public void onClick(View arg0) {
 		
 		if(arg0.equals(valider)){
 			String texteSaisie = zoneSaisie.getText().toString();
 			
 			if(texteSaisie.equals("")){
-				FragmentManager fm = getFragmentManager();
-				PopupErreur a = new PopupErreur();
-				a.setMsg("la zone de texte ne doit pas etre vide");
-				a.show(fm, "test");
+
+				new PopupErreur().display(this,"la zone de texte ne doit pas etre vide");
 			}else{
 				//creations fichier contenant le message à cacher
 								
@@ -51,7 +49,7 @@ public class Vue_cacher_texte_Activity extends Activity implements OnClickListen
 				GestionFichier.fluxEnFichier(file.getPath(),texteSaisie.getBytes());
 				
 				Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
-				intent.putExtra(EXTRA_PATH_CHEMIN,file.getPath());
+				intent.putExtra(EXTRA_LETTRE,file.getPath());
 				startActivity(intent);
 				finish();
 			}
