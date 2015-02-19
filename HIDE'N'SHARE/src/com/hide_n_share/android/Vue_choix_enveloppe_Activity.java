@@ -29,7 +29,6 @@ public class Vue_choix_enveloppe_Activity extends Activity implements OnClickLis
 
 	}
 	
-	@Override
 	public void onClick(View arg0) {
 		if(arg0.equals(galerie)){
 			

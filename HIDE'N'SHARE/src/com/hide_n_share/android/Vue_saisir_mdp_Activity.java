@@ -37,7 +37,6 @@ public class Vue_saisir_mdp_Activity extends Activity implements OnClickListener
         }
     }
     
-	@Override
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
 		

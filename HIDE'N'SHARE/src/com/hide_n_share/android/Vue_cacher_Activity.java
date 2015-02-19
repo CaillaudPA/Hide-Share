@@ -44,7 +44,6 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
     }
 
     
-	@Override
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
 		if(arg0.equals(photoExist)){
