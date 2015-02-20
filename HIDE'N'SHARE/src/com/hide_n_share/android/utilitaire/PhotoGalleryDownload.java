@@ -27,9 +27,7 @@ public class PhotoGalleryDownload {
 	
 	//Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
 	
-	public static void creationDossier(){
-		
-		
+	public static void creationDossier(){		
 		File dossierPrincipal = new File(Data.cheminDeSauvegarde);
 		GestionFichier.fluxEnFichier(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath()+"a.txt","aaa".getBytes());
 		if (!dossierPrincipal.exists() || !dossierPrincipal.isDirectory()) {
