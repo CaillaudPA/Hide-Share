@@ -33,7 +33,9 @@
         <activity android:name=".Vue_cacher_texte_Activity"/>
         <activity android:name=".Vue_choix_enveloppe_Activity"/>
         <activity android:name=".Vue_devoiler_Activity"/>
-        <activity android:name=".Vue_chargement_Activity"/>
+        <activity android:name=".Vue_chargement_devoiler_Activity"/>
+        <activity android:name=".vue_chemin_enregistrement"/>
+        <activity android:name=".vue_chiffrement_compression"/>
         <activity android:name=".test_activity"/>
         
     </application>

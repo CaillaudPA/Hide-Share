@@ -19,9 +19,6 @@ public class Vue_cacher_texte_Activity extends Activity implements OnClickListen
 	private Button valider;
 	private EditText zoneSaisie;
 	
-	
-	final String EXTRA_LETTRE = "enveloppe";
-	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +46,7 @@ public class Vue_cacher_texte_Activity extends Activity implements OnClickListen
 				GestionFichier.fluxEnFichier(file.getPath(),texteSaisie.getBytes());
 				
 				Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
-				intent.putExtra(EXTRA_LETTRE,file.getPath());
+				intent.putExtra(Data.EXTRA_LETTRE,file.getPath());
 				startActivity(intent);
 				finish();
 			}

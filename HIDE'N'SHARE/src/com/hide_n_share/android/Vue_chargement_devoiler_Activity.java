@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ProgressBar;
 
-public class Vue_chargement_Activity extends Activity{
+public class Vue_chargement_devoiler_Activity extends Activity{
 
 	private ProgressBar mProgress;
 	private int i = 0;

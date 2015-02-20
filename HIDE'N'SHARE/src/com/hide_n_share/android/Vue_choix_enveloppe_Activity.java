@@ -15,15 +15,14 @@ public class Vue_choix_enveloppe_Activity extends Activity implements OnClickLis
 	private Button galerie;
 	private Button photo;
 	
-	final String EXTRA_LETTRE = "enveloppe";
-	final String EXTRA_ENVELOPPE = "lettre";
+	String pathDonneeCachee = "";
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choix_enveloppe);
         
-        String pathDonneeCachee= getIntent().getStringExtra(EXTRA_LETTRE);        
+        pathDonneeCachee= getIntent().getStringExtra(Data.EXTRA_LETTRE);        
         
 		new PopupErreur().display(this, pathDonneeCachee);	
 

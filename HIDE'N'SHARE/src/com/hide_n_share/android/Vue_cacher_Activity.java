@@ -23,8 +23,6 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
 	private Button cacherTexte;
 	private Uri imageUri;
 	
-	final String EXTRA_LETTRE = "enveloppe";
-	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,13 +74,9 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
              startActivityForResult(Intent.createChooser(intent,"Select File"), 2);
 			
 		}else{
-			/*Intent intent = new Intent(this, Vue_cacher_texte_Activity.class);
+			Intent intent = new Intent(this, Vue_cacher_texte_Activity.class);
 			startActivity(intent);
-			finish();*/
-			
-			File file = new  File("storage/emulated/0/download/test_file.txt");
-    		GestionFichier.fluxEnFichier(file.getPath(),"sdfzff".getBytes());
-    		new PopupErreur().display(this,new String(GestionFichier.fichierEnFlux(file.getPath())));
+			finish();
 		}
 	} 
 	
@@ -104,7 +98,7 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
                 imageUri = data.getData();
                 
 				Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
-				intent.putExtra(EXTRA_LETTRE,getRealPathFromURI(imageUri));
+				intent.putExtra(Data.EXTRA_LETTRE,getRealPathFromURI(imageUri));
 				startActivity(intent);
 				finish();
 
@@ -112,13 +106,13 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
             if (requestCode == 2) {	
                 imageUri = data.getData();
 				Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
-				intent.putExtra(EXTRA_LETTRE,getRealPathFromURI(imageUri));
+				intent.putExtra(Data.EXTRA_LETTRE,getRealPathFromURI(imageUri));
 				startActivity(intent);
 				finish();
             }
             if (requestCode == 3){
     			Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
-				intent.putExtra(EXTRA_LETTRE,getRealPathFromURI(imageUri));
+				intent.putExtra(Data.EXTRA_LETTRE,getRealPathFromURI(imageUri));
 				startActivity(intent);
 				finish();
             }
