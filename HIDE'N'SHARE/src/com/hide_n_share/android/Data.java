@@ -5,6 +5,6 @@ public class Data {
 	public final static String EXTRA_ENVELOPPE = "enveloppe";
 	public final static String EXTRA_COMPRESSER = "compresser ?";
 	public final static String EXTRA_MDP = "mots de passe";
-	
+	public final static String EXTRA_IMG_A_DEVOILER = "image a dévoiler";
 	
 }
