@@ -49,7 +49,7 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
 		}
 	
 		else if(arg0.equals(photoAPrendre)){
-				String fileName = "imageCamera.jpg";
+				String fileName = "imageCamera.png";
 				//create parameters for Intent with filename
 				ContentValues values = new ContentValues();
 				values.put(MediaStore.Images.Media.TITLE, fileName);
@@ -62,7 +62,6 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
 				Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 				intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
 				startActivityForResult(intent,3);
-				//finish();
 			
 				
 		}else if(arg0.equals(fichierQuelconque)){
