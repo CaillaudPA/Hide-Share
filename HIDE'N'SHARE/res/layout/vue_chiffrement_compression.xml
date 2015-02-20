@@ -22,8 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="15dp"
-        android:layout_toRightOf="@id/texteCompresserLesDonnees"
-		android:onClick="onToggleClicked"/>
+        android:layout_toRightOf="@id/texteCompresserLesDonnees"/>
 
 
     <EditText

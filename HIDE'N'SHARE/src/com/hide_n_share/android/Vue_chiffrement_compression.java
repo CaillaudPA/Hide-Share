@@ -1,7 +1,6 @@
 package com.hide_n_share.android;
 
 import com.hide_n_share.android.utilitaire.Data;
-import com.hide_n_share.android.utilitaire.PopupErreur;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,6 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 
 
 
@@ -23,6 +23,7 @@ public class Vue_chiffrement_compression extends Activity implements OnClickList
 	
 	private EditText zoneSaisie;
 	private Button suivant;
+	private Switch switch1;
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -30,7 +31,9 @@ public class Vue_chiffrement_compression extends Activity implements OnClickList
 		
 		
 		suivant = (Button)findViewById(R.id.boutonValiderVueChiffrement);
-		suivant.setOnClickListener(this);	
+		suivant.setOnClickListener(this);
+		
+		switch1 = (Switch) findViewById(R.id.switchCompresserDonnee);
 		
 		zoneSaisie = (EditText)findViewById(R.id.mdpVueChiffrement);
 		
@@ -42,6 +45,7 @@ public class Vue_chiffrement_compression extends Activity implements OnClickList
 	
 	public void onClick(View arg0) {
 		if(arg0.equals(suivant)){
+			compresser = switch1.isChecked();
 			motsDePasse= zoneSaisie.getText().toString();
 			
 			Intent intent = new Intent(this, Vue_chargement_dissimuler_Activity.class);
@@ -54,10 +58,4 @@ public class Vue_chiffrement_compression extends Activity implements OnClickList
 			finish();
 		}
 	}
-	
-	public void onToggleClicked(View view) {
-		new PopupErreur().display(this, "coucou");
-		//compresser = ((ToggleButton) view).isChecked();
-	}
-
 }

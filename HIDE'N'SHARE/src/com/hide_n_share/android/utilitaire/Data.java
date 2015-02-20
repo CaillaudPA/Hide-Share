@@ -1,5 +1,7 @@
 package com.hide_n_share.android.utilitaire;
 
+import android.os.Environment;
+
 public class Data {
 	//échange d'information entre activité
 	public final static String EXTRA_LETTRE = "lettre";
@@ -10,9 +12,17 @@ public class Data {
 	
 	
 	//chemin du dossier de destination de l'image avec la donnée cachée
-	public final static String cheminImageDissimuler = "pas finit";
+	public final static String cheminDeSauvegarde = 
+			Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath()+"/HIDE_N_SHARE";
 	
-	public final static String cheminLettreDevoiler = "pas encore fais";
+	public final static String cheminDossierImageDissimuler = cheminDeSauvegarde+"/dissimuler";
+	public final static String cheminDossierLettreDevoiler = cheminDeSauvegarde+"/devoiler";
+	
+	
+	public final static int photoAPrendre = 1;
+	public final static int photoExistante = 2;
+	public final static int fichierQuelconque = 3;
+	
 	
 	
 	

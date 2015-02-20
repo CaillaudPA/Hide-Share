@@ -49,7 +49,7 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
             
             Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
             intent.setType("image/*");
-            startActivityForResult(Intent.createChooser(intent,"Select exisiting image"), 1);
+            startActivityForResult(Intent.createChooser(intent,"Select exisiting image"), Data.photoExistante);
 		}
 	
 		else if(arg0.equals(photoAPrendre)){
@@ -65,13 +65,13 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
 				//create new Intent
 				Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 				intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-				startActivityForResult(intent,3);
+				startActivityForResult(intent,Data.photoAPrendre);
 			
 				
 		}else if(arg0.equals(fichierQuelconque)){
 			 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
 		     intent.setType("*/*");
-             startActivityForResult(Intent.createChooser(intent,"Select File"), 2);
+             startActivityForResult(Intent.createChooser(intent,"Select File"), Data.fichierQuelconque);
 			
 		}else{
 			Intent intent = new Intent(this, Vue_cacher_texte_Activity.class);
@@ -83,7 +83,7 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
 	
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
        if (resultCode == RESULT_OK) {
-            if (requestCode == 1) {	
+            if (requestCode == Data.photoExistante) {	
                 imageUri = data.getData();
                 
 				Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
@@ -92,14 +92,14 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
 				finish();
 
             }
-            if (requestCode == 2) {	
+            if (requestCode == Data.fichierQuelconque) {	
                 imageUri = data.getData();
 				Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
 				intent.putExtra(Data.EXTRA_LETTRE,PhotoGalleryDownload.getRealPathFromURI(this,imageUri));
 				startActivity(intent);
 				finish();
             }
-            if (requestCode == 3){
+            if (requestCode == Data.photoAPrendre){
     			Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
 				intent.putExtra(Data.EXTRA_LETTRE,PhotoGalleryDownload.getRealPathFromURI(this,imageUri));
 				startActivity(intent);

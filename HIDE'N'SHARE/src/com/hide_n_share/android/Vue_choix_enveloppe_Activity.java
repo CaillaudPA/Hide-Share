@@ -7,7 +7,6 @@ import com.hide_n_share.android.utilitaire.PhotoGalleryDownload;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -42,7 +41,9 @@ public class Vue_choix_enveloppe_Activity extends Activity implements OnClickLis
 	
 	public void onClick(View arg0) {
 		if(arg0.equals(galerie)){
-			
+            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+            intent.setType("image/*");
+            startActivityForResult(Intent.createChooser(intent,"Select exisiting image"), Data.photoExistante);
 		}else if(arg0.equals(photo)){
 			String fileName = "HIDE_N_SHARE_ChoixEnvellope.png";
 			//create parameters for Intent with filename
@@ -56,20 +57,30 @@ public class Vue_choix_enveloppe_Activity extends Activity implements OnClickLis
 			//create new Intent
 			Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 			intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-			startActivityForResult(intent,3);
+			startActivityForResult(intent,Data.photoAPrendre);
 		}
 	}
 	
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		
 		if (resultCode == RESULT_OK) {
-			System.out.println(imageUri.toString());
-			
-   			Intent intent = new Intent(this, Vue_chiffrement_compression.class);
-			intent.putExtra(Data.EXTRA_ENVELOPPE, PhotoGalleryDownload.getRealPathFromURI(this, imageUri));
-			intent.putExtra(Data.EXTRA_LETTRE,pathDonneeCachee);		
-			
-			startActivity(intent);
-			finish();
+			if (requestCode == Data.photoAPrendre) {
+	   			Intent intent = new Intent(this, Vue_chiffrement_compression.class);
+				intent.putExtra(Data.EXTRA_ENVELOPPE, PhotoGalleryDownload.getRealPathFromURI(this, imageUri));
+				intent.putExtra(Data.EXTRA_LETTRE,pathDonneeCachee);		
+				
+				startActivity(intent);
+				finish();
+			}else if(requestCode == Data.photoExistante){
+                imageUri = data.getData();
+                
+				Intent intent = new Intent(this, Vue_chiffrement_compression.class);
+				intent.putExtra(Data.EXTRA_ENVELOPPE,PhotoGalleryDownload.getRealPathFromURI(this,imageUri));
+				intent.putExtra(Data.EXTRA_LETTRE,pathDonneeCachee);
+				
+				startActivity(intent);
+				finish();
+			}
 		}		
 	}
 }

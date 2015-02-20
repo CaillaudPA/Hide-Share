@@ -29,4 +29,9 @@ public class Vue_chargement_dissimuler_Activity extends Activity {
 		stegano.dissimulerDonnee(Data.cheminImageDissimuler, compresser, motsDePasse);*/
 
 	}
+	
+	public void finish(){
+		new PopupErreur().display(this, "la nouvelle image est cacher dans: "+ Data.cheminDossierImageDissimuler);
+	}
 }
+
