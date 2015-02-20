@@ -2,6 +2,7 @@ package com.hide_n_share.android;
 
 
 import com.hide_n_share.android.utilitaire.Data;
+import com.hide_n_share.android.utilitaire.PhotoGalleryDownload;
 
 import android.app.Activity;
 import android.content.ContentValues;
@@ -64,24 +65,11 @@ public class Vue_choix_enveloppe_Activity extends Activity implements OnClickLis
 			System.out.println(imageUri.toString());
 			
    			Intent intent = new Intent(this, Vue_chiffrement_compression.class);
-			intent.putExtra(Data.EXTRA_ENVELOPPE,getRealPathFromURI(imageUri));
+			intent.putExtra(Data.EXTRA_ENVELOPPE, PhotoGalleryDownload.getRealPathFromURI(this, imageUri));
 			intent.putExtra(Data.EXTRA_LETTRE,pathDonneeCachee);		
 			
 			startActivity(intent);
 			finish();
 		}		
 	}
-	
-	public String getRealPathFromURI (Uri contentUri) {
-	    String path = null;
-	    String[] proj = { MediaStore.MediaColumns.DATA };
-	    Cursor cursor = getContentResolver().query(contentUri, proj, null, null, null);
-	    if (cursor.moveToFirst()) {
-	       int column_index = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA);
-	       path = cursor.getString(column_index);
-	    }
-	    cursor.close();
-	    return path;
-	}
-
 }

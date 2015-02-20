@@ -1,5 +1,6 @@
 package com.hide_n_share.android;
 import com.hide_n_share.android.utilitaire.Data;
+import com.hide_n_share.android.utilitaire.PhotoGalleryDownload;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -38,21 +39,9 @@ public class Vue_devoiler_Activity extends Activity implements OnClickListener {
             imageUri = data.getData();
             
 			Intent intent = new Intent(this, Vue_saisir_mdp_Activity.class);
-			intent.putExtra(Data.EXTRA_IMG_A_DEVOILER,getRealPathFromURI(imageUri));
+			intent.putExtra(Data.EXTRA_IMG_A_DEVOILER,PhotoGalleryDownload.getRealPathFromURI(this, imageUri));
 			startActivity(intent);
 			finish();
         }
     }
-    
-	public String getRealPathFromURI (Uri contentUri) {
-	    String path = null;
-	    String[] proj = { MediaStore.MediaColumns.DATA };
-	    Cursor cursor = getContentResolver().query(contentUri, proj, null, null, null);
-	    if (cursor.moveToFirst()) {
-	       int column_index = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA);
-	       path = cursor.getString(column_index);
-	    }
-	    cursor.close();
-	    return path;
-	}
 }

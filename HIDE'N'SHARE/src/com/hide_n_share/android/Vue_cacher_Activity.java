@@ -2,6 +2,7 @@ package com.hide_n_share.android;
 
 
 import com.hide_n_share.android.utilitaire.Data;
+import com.hide_n_share.android.utilitaire.PhotoGalleryDownload;
 
 import android.app.Activity;
 import android.content.ContentValues;
@@ -9,6 +10,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.MediaStore;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -78,17 +80,6 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
 		}
 	} 
 	
-	public String getRealPathFromURI (Uri contentUri) {
-	    String path = null;
-	    String[] proj = { MediaStore.MediaColumns.DATA };
-	    Cursor cursor = getContentResolver().query(contentUri, proj, null, null, null);
-	    if (cursor.moveToFirst()) {
-	       int column_index = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA);
-	       path = cursor.getString(column_index);
-	    }
-	    cursor.close();
-	    return path;
-	}
 	
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
        if (resultCode == RESULT_OK) {
@@ -96,7 +87,7 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
                 imageUri = data.getData();
                 
 				Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
-				intent.putExtra(Data.EXTRA_LETTRE,getRealPathFromURI(imageUri));
+				intent.putExtra(Data.EXTRA_LETTRE,PhotoGalleryDownload.getRealPathFromURI(this,imageUri));
 				startActivity(intent);
 				finish();
 
@@ -104,13 +95,13 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
             if (requestCode == 2) {	
                 imageUri = data.getData();
 				Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
-				intent.putExtra(Data.EXTRA_LETTRE,getRealPathFromURI(imageUri));
+				intent.putExtra(Data.EXTRA_LETTRE,PhotoGalleryDownload.getRealPathFromURI(this,imageUri));
 				startActivity(intent);
 				finish();
             }
             if (requestCode == 3){
     			Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
-				intent.putExtra(Data.EXTRA_LETTRE,getRealPathFromURI(imageUri));
+				intent.putExtra(Data.EXTRA_LETTRE,PhotoGalleryDownload.getRealPathFromURI(this,imageUri));
 				startActivity(intent);
 				finish();
             }

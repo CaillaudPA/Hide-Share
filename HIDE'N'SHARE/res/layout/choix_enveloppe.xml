@@ -50,6 +50,6 @@
         android:layout_alignTop="@+id/prendrePhoto"
         android:scaleType="fitXY"
         android:layout_toEndOf="@+id/prendrePhoto"
-        android:text="galery"/>
+        android:text="galerie"/>
 
 </RelativeLayout>
