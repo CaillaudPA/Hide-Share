@@ -31,14 +31,15 @@
 	        
     </GridLayout>    
     
-    <ImageButton
+    <Button
         android:id="@+id/prendrePhoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/logoappareilphoto"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true"
+        android:text="photo"/>
 
-    <ImageButton
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/repertoirephoto"
@@ -48,6 +49,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/prendrePhoto"
         android:scaleType="fitXY"
-        android:layout_toEndOf="@+id/prendrePhoto"/>
+        android:layout_toEndOf="@+id/prendrePhoto"
+        android:text="galery"/>
 
 </RelativeLayout>

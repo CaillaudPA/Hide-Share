@@ -1,6 +1,8 @@
 package com.hide_n_share.android;
 
 
+import com.hide_n_share.android.utilitaire.Data;
+
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;

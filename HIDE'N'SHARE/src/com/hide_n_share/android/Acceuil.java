@@ -55,7 +55,6 @@ public class Acceuil extends Activity implements OnClickListener{
 			//new PopupErreur().display(this, "tamer");
 			Intent intent = new Intent(this, test_activity.class);
 			startActivity(intent);
-			finish();
 		}
 		return super.onOptionsItemSelected(item);
 	}
@@ -82,13 +81,11 @@ public class Acceuil extends Activity implements OnClickListener{
 		if(arg0.equals(boutonCacher)){
 			Intent intent = new Intent(this, Vue_cacher_Activity.class);
 			startActivity(intent);
-			finish();
 			
 		}else//devoiler
 		{
 			Intent intent = new Intent(this, Vue_devoiler_Activity.class);
 			startActivity(intent);
-			finish();
 		}
 	}
 

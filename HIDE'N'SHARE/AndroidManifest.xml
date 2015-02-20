@@ -37,7 +37,8 @@
         <activity android:name=".vue_chemin_enregistrement"/>
         <activity android:name=".vue_chiffrement_compression"/>
         <activity android:name=".test_activity"/>
-        
+        <activity android:name="Vue_chargement_dissimuler_Activity"></activity>
+        <activity android:name="Vue_chiffrement_compression"></activity>
     </application>
 
 </manifest>

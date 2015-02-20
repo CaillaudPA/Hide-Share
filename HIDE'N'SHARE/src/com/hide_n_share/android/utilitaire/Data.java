@@ -1,4 +1,4 @@
-package com.hide_n_share.android;
+package com.hide_n_share.android.utilitaire;
 
 public class Data {
 	//échange d'information entre activité
@@ -10,7 +10,10 @@ public class Data {
 	
 	
 	//chemin du dossier de destination de l'image avec la donnée cachée
-	public final static String cheminImageDissimuler = "";
+	public final static String cheminImageDissimuler = "pas finit";
+	
+	public final static String cheminLettreDevoiler = "pas encore fais";
+	
 	
 	
 }

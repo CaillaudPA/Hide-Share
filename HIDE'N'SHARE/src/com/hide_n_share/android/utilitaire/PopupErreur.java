@@ -1,4 +1,6 @@
-package com.hide_n_share.android;
+package com.hide_n_share.android.utilitaire;
+
+import com.hide_n_share.android.Acceuil;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -18,7 +20,7 @@ public class PopupErreur extends DialogFragment {
 		 	.setPositiveButton("quitter l'aplication", new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int id) {
                        //quitter l'application 
-                       System.exit(0);
+                	   System.exit(0);
                 	   
                    }}).setNegativeButton("retour a l'acceuil", new DialogInterface.OnClickListener() {
                        public void onClick(DialogInterface dialog, int id) {
@@ -29,10 +31,6 @@ public class PopupErreur extends DialogFragment {
                        }
                    });	 
 		 return builder.create();
-	}
-	
-	public void setIcone(){
-		
 	}
 	
 	public void setMsg(String msgErreur){

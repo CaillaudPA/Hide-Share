@@ -2,6 +2,8 @@ package com.hide_n_share.android;
 
 import java.io.File;
 
+import com.hide_n_share.android.utilitaire.Data;
+import com.hide_n_share.android.utilitaire.PopupErreur;
 import com.hide_n_share.modele.classeStatic.GestionFichier;
 
 import android.app.Activity;
