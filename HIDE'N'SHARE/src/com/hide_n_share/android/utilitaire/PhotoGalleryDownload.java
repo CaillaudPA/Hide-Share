@@ -29,17 +29,30 @@ public class PhotoGalleryDownload {
 	
 	public static void creationDossier(){		
 		File dossierPrincipal = new File(Data.cheminDeSauvegarde);
-		GestionFichier.fluxEnFichier(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath()+"a.txt","aaa".getBytes());
-		if (!dossierPrincipal.exists() || !dossierPrincipal.isDirectory()) {
-			System.out.println(dossierPrincipal.mkdirs());
-		}else{
-			
+		File dossierDissimuler = new File(Data.cheminDossierDissimuler);
+		File dossierDevoiler = new File(Data.cheminDossierDevoiler);
+
+		if (!dossierPrincipal.exists() && !dossierPrincipal.isDirectory()) {
+			dossierPrincipal.mkdirs();
+		}
+		if(!dossierDissimuler.exists() && !dossierDissimuler.isDirectory()){
+			dossierDissimuler.mkdirs();
+		}
+		if(!dossierDevoiler.exists() && !dossierDevoiler.isDirectory()){
+			dossierDevoiler.mkdirs();
 		}
 		
+		GestionFichier.fluxEnFichier(genererNomFichierInexistant(
+						Data.cheminDossierDissimuler,".txt"), "azerty".getBytes());
 	}
 	
-	public static String genererNomInexistant(File directory){
+	public static String genererNomFichierInexistant(String directory,String extensionFichier){
+		int i = 0;
+		while(new File(directory+i+"."+extensionFichier).exists()){
+			i++;
+		}
 		
-		return null;
+		File aRetourner = new File(directory+"\\"+i+"."+extensionFichier);
+		return aRetourner.getPath();
 	}
 }

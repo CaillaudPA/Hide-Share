@@ -23,7 +23,7 @@ public class Vue_chargement_devoiler_Activity extends Activity{
         
         image_a_devoiler = getIntent().getStringExtra(Data.EXTRA_IMG_A_DEVOILER);  
         mdp = getIntent().getStringExtra(Data.EXTRA_MDP);
-        cheminDestination = Data.cheminDossierLettreDevoiler;
+        cheminDestination = Data.cheminDossierDevoiler;
         
         new PopupErreur().display(this, image_a_devoiler+"\n"+mdp+"\n"+cheminDestination);        
         
