@@ -45,7 +45,7 @@ public class Vue_saisir_mdp_Activity extends Activity implements OnClickListener
     
 	public void onClick(View arg0) {
 		if (arg0.equals(boutonValider)) {
-			Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
+			Intent intent = new Intent(this, Vue_chargement_devoiler_Activity.class);
 			
 			intent.putExtra(Data.EXTRA_IMG_A_DEVOILER,image_a_devoiler);
 			intent.putExtra(Data.EXTRA_MDP, mdp);

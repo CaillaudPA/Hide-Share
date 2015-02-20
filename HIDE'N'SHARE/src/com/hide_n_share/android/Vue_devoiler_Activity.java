@@ -20,7 +20,7 @@ public class Vue_devoiler_Activity extends Activity implements OnClickListener {
 	
 	public void onClick(View arg0) {
 		if(arg0.equals(selectImage)){
-			Intent intentTest = new Intent(this, Vue_chargement_devoiler_Activity.class);
+			Intent intentTest = new Intent(this, Vue_saisir_mdp_Activity.class);
 			startActivity(intentTest);
 			finish();
 		}
