@@ -192,8 +192,8 @@ public class Stegano_image extends Steganographie{
 		}
 		
 
-		
-		String[] tmpString = this.enveloppe.getEnveloppe().split("\\.");
+		String[] tmpStringA = this.enveloppe.getEnveloppe().split("/");
+		String[] tmpString = tmpStringA[tmpStringA.length-1].split("\\.");
 		if (tmpString.length ==2 ){
 			//si le format d'image n'est pas compatible mais peut etre converti en bmp
 			if(formatConvertissable.contains(tmpString[1])){

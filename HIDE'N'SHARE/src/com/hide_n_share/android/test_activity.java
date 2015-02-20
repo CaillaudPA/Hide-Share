@@ -29,8 +29,8 @@ public class test_activity extends Activity implements OnClickListener{
 	public void onClick(View arg0) {
 		if(arg0.equals(bTest))
 		{
-			File file = new File("/external/images/media/"/*getFilesDir()*/,"Christian.txt");
-			GestionFichier.fluxEnFichier(file.getPath(),"Christianne".getBytes());
+			//File file = new File("/external/images/media/"/*getFilesDir()*/,"Christian.txt");
+			//GestionFichier.fluxEnFichier(file.getPath(),"Christianne".getBytes());
 			/*Stegano_image jeanMichel = new Stegano_image(file.getPath(), "/external/images/media/18");
 			
 			jeanMichel.dissimulerDonnee("/external/images/media/150", false, "");*/

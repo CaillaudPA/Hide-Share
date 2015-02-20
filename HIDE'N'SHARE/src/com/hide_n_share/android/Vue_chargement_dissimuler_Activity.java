@@ -1,6 +1,7 @@
 package com.hide_n_share.android;
 
 import com.hide_n_share.android.utilitaire.Data;
+import com.hide_n_share.android.utilitaire.PhotoGalleryDownload;
 import com.hide_n_share.android.utilitaire.PopupErreur;
 import com.hide_n_share.modele.steganographie.Stegano_image;
 
@@ -13,6 +14,8 @@ public class Vue_chargement_dissimuler_Activity extends Activity {
 	String pathEnveloppe = "";
 	String motsDePasse = "";
 	boolean compresser=false;
+	String enveloppeModifier = PhotoGalleryDownload.genererNomFichierInexistant(
+			Data.cheminDossierDissimuler, "png");
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -24,14 +27,18 @@ public class Vue_chargement_dissimuler_Activity extends Activity {
 		motsDePasse = getIntent().getStringExtra(Data.EXTRA_MDP);
 		
 		new PopupErreur().display(this, pathLettre+"\n"+pathEnveloppe+"\n"+compresser+"\n"+motsDePasse);
+		
+		
+		
+		
 		/*
 		Stegano_image stegano = new Stegano_image(pathLettre, pathEnveloppe);
-		stegano.dissimulerDonnee(Data.cheminImageDissimuler, compresser, motsDePasse);*/
+		stegano.dissimulerDonnee(enveloppeModifier, compresser, motsDePasse);*/
 
 	}
-	
+	//à appeler a la fin du chargement !
 	public void finish(){
-		new PopupErreur().display(this, "la nouvelle image est cacher dans: "+ Data.cheminDossierDissimuler);
+		new PopupErreur().display(this, "la nouvelle image est cacher dans:\n"+ enveloppeModifier);
 	}
 }
 

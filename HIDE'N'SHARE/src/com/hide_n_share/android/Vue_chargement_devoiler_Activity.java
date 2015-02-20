@@ -1,6 +1,7 @@
 package com.hide_n_share.android;
 
 import com.hide_n_share.android.utilitaire.Data;
+import com.hide_n_share.android.utilitaire.PhotoGalleryDownload;
 import com.hide_n_share.android.utilitaire.PopupErreur;
 
 import android.app.Activity;
@@ -15,7 +16,8 @@ public class Vue_chargement_devoiler_Activity extends Activity{
 	String image_a_devoiler = "";
 	String mdp = "";
 	String cheminDestination = "";
-	
+	String enveloppeModifier = PhotoGalleryDownload.genererNomFichierInexistant(
+			Data.cheminDossierDevoiler, "txt");
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +49,9 @@ public class Vue_chargement_devoiler_Activity extends Activity{
         
         
     }
-	
+	//à appeler a la fin du chargement !
+	public void finish(){
+		new PopupErreur().display(this, "le fichier qui etait cacher est sauvegarder dans:\n"+ enveloppeModifier);
+	}
 
 }

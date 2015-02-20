@@ -1,5 +1,7 @@
 package com.hide_n_share.android;
 
+import com.hide_n_share.android.utilitaire.PhotoGalleryDownload;
+
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
@@ -22,11 +24,13 @@ public class Acceuil extends Activity implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_acceuil);
 
-		 boutonCacher = (Button)findViewById(R.id.boutonAcceuilDissimuler);
-		 boutonCacher.setOnClickListener(this);
-		 
-		 boutonDevoiler = (Button)findViewById(R.id.boutonAcceuilDevoiler);
-		 boutonDevoiler.setOnClickListener(this);
+		PhotoGalleryDownload.creationDossier();
+		
+		boutonCacher = (Button)findViewById(R.id.boutonAcceuilDissimuler);
+		boutonCacher.setOnClickListener(this);
+		
+		boutonDevoiler = (Button)findViewById(R.id.boutonAcceuilDevoiler);
+		boutonDevoiler.setOnClickListener(this);
 	        
 		if (savedInstanceState == null) {
 			getFragmentManager().beginTransaction()

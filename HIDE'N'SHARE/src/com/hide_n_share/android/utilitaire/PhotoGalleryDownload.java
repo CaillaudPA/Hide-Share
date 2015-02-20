@@ -3,12 +3,9 @@ package com.hide_n_share.android.utilitaire;
 
 import java.io.File;
 
-import com.hide_n_share.modele.classeStatic.GestionFichier;
-
 import android.app.Activity;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Environment;
 import android.provider.MediaStore;
 
 public class PhotoGalleryDownload {
@@ -25,8 +22,6 @@ public class PhotoGalleryDownload {
 	    return path;
 	}
 	
-	//Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-	
 	public static void creationDossier(){		
 		File dossierPrincipal = new File(Data.cheminDeSauvegarde);
 		File dossierDissimuler = new File(Data.cheminDossierDissimuler);
@@ -41,18 +36,15 @@ public class PhotoGalleryDownload {
 		if(!dossierDevoiler.exists() && !dossierDevoiler.isDirectory()){
 			dossierDevoiler.mkdirs();
 		}
-		
-		GestionFichier.fluxEnFichier(genererNomFichierInexistant(
-						Data.cheminDossierDissimuler,".txt"), "azerty".getBytes());
 	}
 	
 	public static String genererNomFichierInexistant(String directory,String extensionFichier){
 		int i = 0;
-		while(new File(directory+i+"."+extensionFichier).exists()){
+		while((new File(directory+"/"+i+"."+extensionFichier).exists())){
 			i++;
 		}
 		
-		File aRetourner = new File(directory+"\\"+i+"."+extensionFichier);
+		File aRetourner = new File(directory+"/"+i+"."+extensionFichier);
 		return aRetourner.getPath();
 	}
 }
