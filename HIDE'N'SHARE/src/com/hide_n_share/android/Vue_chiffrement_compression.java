@@ -15,11 +15,12 @@ public class Vue_chiffrement_compression extends Activity implements OnClickList
 	
 	String pathLettre = "";
 	String pathEnveloppe = "";
-	private boolean compresser=false;
+	String motsDePasse = "";
+	boolean compresser=false;
+	
 	
 	private EditText zoneSaisie;
 	private Button suivant;
-	
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -30,8 +31,6 @@ public class Vue_chiffrement_compression extends Activity implements OnClickList
 		
 		zoneSaisie = (EditText)findViewById(R.id.mdpVueChiffrement);
 		
-		ToggleButton toggle = (ToggleButton) findViewById(R.id.switchCompresserDonnee);
-		
 		pathLettre = getIntent().getStringExtra(Data.EXTRA_LETTRE);  
 		pathEnveloppe = getIntent().getStringExtra(Data.EXTRA_ENVELOPPE);  
 		
@@ -40,15 +39,16 @@ public class Vue_chiffrement_compression extends Activity implements OnClickList
 	
 	public void onClick(View arg0) {
 		if(arg0.equals(suivant)){
+			motsDePasse= zoneSaisie.getText().toString();
+			
 			Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
 			intent.putExtra(Data.EXTRA_LETTRE,pathLettre);
 			intent.putExtra(Data.EXTRA_ENVELOPPE,pathEnveloppe);
-			intent.putExtra(Data.EXTRA_LETTRE,pathEnveloppe);
+			intent.putExtra(Data.EXTRA_COMPRESSER,compresser);
+			intent.putExtra(Data.EXTRA_MDP,motsDePasse);
 			
 			startActivity(intent);
 			finish();
-			
-			
 		}
 	}
 	

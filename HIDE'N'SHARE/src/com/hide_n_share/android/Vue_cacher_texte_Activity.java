@@ -5,7 +5,6 @@ import java.io.File;
 import com.hide_n_share.modele.classeStatic.GestionFichier;
 
 import android.app.Activity;
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
