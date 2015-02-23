@@ -2,7 +2,7 @@ package com.hide_n_share.android;
 
 import java.io.File;
 
-import com.hide_n_share.android.utilitaire.PhotoGalleryDownload;
+import com.hide_n_share.android.utilitaire.FonctionUtile;
 import com.hide_n_share.modele.classeStatic.*;
 import com.hide_n_share.modele.steganographie.*;
 
@@ -20,7 +20,7 @@ public class test_activity extends Activity implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.vue_test);
 		
-		PhotoGalleryDownload.creationDossier();
+		FonctionUtile.creationDossier();
 		
 		bTest = (Button)findViewById(R.id.boutonTest);
 		bTest.setOnClickListener(this);

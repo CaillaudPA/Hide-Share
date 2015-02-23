@@ -1,6 +1,6 @@
 package com.hide_n_share.android;
 
-import com.hide_n_share.android.utilitaire.PhotoGalleryDownload;
+import com.hide_n_share.android.utilitaire.FonctionUtile;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -24,7 +24,7 @@ public class Acceuil extends Activity implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_acceuil);
 
-		PhotoGalleryDownload.creationDossier();
+		FonctionUtile.creationDossier();
 		
 		boutonCacher = (Button)findViewById(R.id.boutonAcceuilDissimuler);
 		boutonCacher.setOnClickListener(this);

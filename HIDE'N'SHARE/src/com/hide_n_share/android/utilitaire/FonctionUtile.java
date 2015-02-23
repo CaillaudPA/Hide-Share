@@ -5,10 +5,14 @@ import java.io.File;
 
 import android.app.Activity;
 import android.database.Cursor;
+import android.graphics.*;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.content.Intent;
 
-public class PhotoGalleryDownload {
+import com.hide_n_share.modele.steganographie.Stegano_image;
+
+public class FonctionUtile {
 
 	public static String getRealPathFromURI(Activity act, Uri contentUri) {
 	    String path = null;
@@ -22,7 +26,7 @@ public class PhotoGalleryDownload {
 	    return path;
 	}
 	
-	public static void creationDossier(){		
+	public static void creationDossier(){
 		File dossierPrincipal = new File(Data.cheminDeSauvegarde);
 		File dossierDissimuler = new File(Data.cheminDossierDissimuler);
 		File dossierDevoiler = new File(Data.cheminDossierDevoiler);
@@ -36,15 +40,22 @@ public class PhotoGalleryDownload {
 		if(!dossierDevoiler.exists() && !dossierDevoiler.isDirectory()){
 			dossierDevoiler.mkdirs();
 		}
-	}
-	
+    }
+
 	public static String genererNomFichierInexistant(String directory,String extensionFichier){
 		int i = 0;
 		while((new File(directory+"/"+i+"."+extensionFichier).exists())){
 			i++;
 		}
-		
+
 		File aRetourner = new File(directory+"/"+i+"."+extensionFichier);
 		return aRetourner.getPath();
 	}
+
+    public static void actualiseMedia(Activity act, File fichierAActualise){
+        Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+        Uri contentUri = Uri.fromFile(fichierAActualise);
+        mediaScanIntent.setData(contentUri);
+        act.sendBroadcast(mediaScanIntent);
+    }
 }

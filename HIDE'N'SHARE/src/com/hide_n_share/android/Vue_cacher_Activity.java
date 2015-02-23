@@ -2,7 +2,7 @@ package com.hide_n_share.android;
 
 
 import com.hide_n_share.android.utilitaire.Data;
-import com.hide_n_share.android.utilitaire.PhotoGalleryDownload;
+import com.hide_n_share.android.utilitaire.FonctionUtile;
 
 import android.app.Activity;
 import android.content.ContentValues;
@@ -85,7 +85,7 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
                 imageUri = data.getData();
                 
 				Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
-				intent.putExtra(Data.EXTRA_LETTRE,PhotoGalleryDownload.getRealPathFromURI(this,imageUri));
+				intent.putExtra(Data.EXTRA_LETTRE,FonctionUtile.getRealPathFromURI(this,imageUri));
 				startActivity(intent);
 				finish();
 
@@ -93,13 +93,13 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
             if (requestCode == Data.fichierQuelconque) {	
                 imageUri = data.getData();
 				Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
-				intent.putExtra(Data.EXTRA_LETTRE,PhotoGalleryDownload.getRealPathFromURI(this,imageUri));
+				intent.putExtra(Data.EXTRA_LETTRE,FonctionUtile.getRealPathFromURI(this,imageUri));
 				startActivity(intent);
 				finish();
             }
             if (requestCode == Data.photoAPrendre){
     			Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
-				intent.putExtra(Data.EXTRA_LETTRE,PhotoGalleryDownload.getRealPathFromURI(this,imageUri));
+				intent.putExtra(Data.EXTRA_LETTRE,FonctionUtile.getRealPathFromURI(this,imageUri));
 				startActivity(intent);
 				finish();
             }

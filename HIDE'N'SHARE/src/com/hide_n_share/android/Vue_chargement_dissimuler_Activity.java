@@ -1,7 +1,7 @@
 package com.hide_n_share.android;
 
 import com.hide_n_share.android.utilitaire.Data;
-import com.hide_n_share.android.utilitaire.PhotoGalleryDownload;
+import com.hide_n_share.android.utilitaire.FonctionUtile;
 import com.hide_n_share.android.utilitaire.PopupErreur;
 import com.hide_n_share.modele.steganographie.Stegano_image;
 
@@ -14,7 +14,7 @@ public class Vue_chargement_dissimuler_Activity extends Activity {
 	String pathEnveloppe = "";
 	String motsDePasse = "";
 	boolean compresser=false;
-	String enveloppeModifier = PhotoGalleryDownload.genererNomFichierInexistant(
+	String enveloppeModifier = FonctionUtile.genererNomFichierInexistant(
 			Data.cheminDossierDissimuler, "png");
 	
 	protected void onCreate(Bundle savedInstanceState) {

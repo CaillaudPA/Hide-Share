@@ -1,6 +1,6 @@
 package com.hide_n_share.android;
 import com.hide_n_share.android.utilitaire.Data;
-import com.hide_n_share.android.utilitaire.PhotoGalleryDownload;
+import com.hide_n_share.android.utilitaire.FonctionUtile;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -38,7 +38,7 @@ public class Vue_devoiler_Activity extends Activity implements OnClickListener {
                 imageUri = data.getData();
                 
     			Intent intent = new Intent(this, Vue_saisir_mdp_Activity.class);
-    			intent.putExtra(Data.EXTRA_IMG_A_DEVOILER,PhotoGalleryDownload.getRealPathFromURI(this, imageUri));
+    			intent.putExtra(Data.EXTRA_IMG_A_DEVOILER,FonctionUtile.getRealPathFromURI(this, imageUri));
     			startActivity(intent);
     			finish();
 			}

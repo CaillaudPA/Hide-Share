@@ -2,7 +2,7 @@ package com.hide_n_share.android;
 
 
 import com.hide_n_share.android.utilitaire.Data;
-import com.hide_n_share.android.utilitaire.PhotoGalleryDownload;
+import com.hide_n_share.android.utilitaire.FonctionUtile;
 
 import android.app.Activity;
 import android.content.ContentValues;
@@ -66,7 +66,7 @@ public class Vue_choix_enveloppe_Activity extends Activity implements OnClickLis
 		if (resultCode == RESULT_OK) {
 			if (requestCode == Data.photoAPrendre) {
 	   			Intent intent = new Intent(this, Vue_chiffrement_compression.class);
-				intent.putExtra(Data.EXTRA_ENVELOPPE, PhotoGalleryDownload.getRealPathFromURI(this, imageUri));
+				intent.putExtra(Data.EXTRA_ENVELOPPE, FonctionUtile.getRealPathFromURI(this, imageUri));
 				intent.putExtra(Data.EXTRA_LETTRE,pathDonneeCachee);		
 				
 				startActivity(intent);
@@ -75,7 +75,7 @@ public class Vue_choix_enveloppe_Activity extends Activity implements OnClickLis
                 imageUri = data.getData();
                 
 				Intent intent = new Intent(this, Vue_chiffrement_compression.class);
-				intent.putExtra(Data.EXTRA_ENVELOPPE,PhotoGalleryDownload.getRealPathFromURI(this,imageUri));
+				intent.putExtra(Data.EXTRA_ENVELOPPE,FonctionUtile.getRealPathFromURI(this,imageUri));
 				intent.putExtra(Data.EXTRA_LETTRE,pathDonneeCachee);
 				
 				startActivity(intent);
