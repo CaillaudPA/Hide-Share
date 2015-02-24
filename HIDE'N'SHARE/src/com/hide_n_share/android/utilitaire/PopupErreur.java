@@ -20,7 +20,7 @@ public class PopupErreur extends DialogFragment {
 		 	.setPositiveButton("quitter l'aplication", new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int id) {
                        //quitter l'application 
-                	   System.exit(0);
+                       System.exit(0);
                 	   
                    }}).setNegativeButton("retour a l'acceuil", new DialogInterface.OnClickListener() {
                        public void onClick(DialogInterface dialog, int id) {
@@ -29,7 +29,7 @@ public class PopupErreur extends DialogFragment {
                     	   getActivity().startActivityForResult(intent, 0);
                     	   System.exit(0);
                        }
-                   });	 
+                   });
 		 return builder.create();
 	}
 	
@@ -53,6 +53,4 @@ public class PopupErreur extends DialogFragment {
 		this.setMsg(bool);
 		this.show(fm.getFragmentManager(), "test");	
 	}
-	
-	
 }

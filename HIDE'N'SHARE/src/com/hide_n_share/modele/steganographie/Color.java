@@ -11,17 +11,17 @@ public class Color {
 	
 	public Color(int couleur){
 		byte[] tmp = this.intEnQuatreOctets(couleur);
-		red = tmp[0];
-		green = tmp[1];
-		blue = tmp[2];
-		setRGB();
+		red = android.graphics.Color.red(couleur);
+		green = android.graphics.Color.green(couleur);
+		blue = android.graphics.Color.blue(couleur);
+        RGB = android.graphics.Color.argb(-1,red,green,blue);
 	}
 	
 	public Color(int r, int g, int b){
 		red = r;
 		green = g;
 		blue = b;
-		setRGB();
+        RGB = android.graphics.Color.argb(-1,red,green,blue);
 	}
 	
 	
@@ -72,8 +72,5 @@ public class Color {
 	
 	public int getRGB(){
 		return RGB;
-	}
-	
-
-	
+	}	
 }

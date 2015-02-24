@@ -3,6 +3,7 @@ package com.hide_n_share.android;
 import com.hide_n_share.android.utilitaire.Data;
 import com.hide_n_share.android.utilitaire.FonctionUtile;
 import com.hide_n_share.android.utilitaire.PopupErreur;
+import com.hide_n_share.modele.steganographie.Stegano_image;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -16,8 +17,7 @@ public class Vue_chargement_devoiler_Activity extends Activity{
 	String image_a_devoiler = "";
 	String mdp = "";
 	String cheminDestination = "";
-	String enveloppeModifier = FonctionUtile.genererNomFichierInexistant(
-			Data.cheminDossierDevoiler, "txt");
+
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,9 +25,9 @@ public class Vue_chargement_devoiler_Activity extends Activity{
         
         image_a_devoiler = getIntent().getStringExtra(Data.EXTRA_IMG_A_DEVOILER);  
         mdp = getIntent().getStringExtra(Data.EXTRA_MDP);
-        cheminDestination = Data.cheminDossierDevoiler;
+        cheminDestination = FonctionUtile.genererNomFichierInexistant(Data.cheminDossierDevoiler, "txt");
         
-        new PopupErreur().display(this, image_a_devoiler+"\n"+mdp+"\n"+cheminDestination);        
+        //new PopupErreur().display(this, image_a_devoiler+"\n"+mdp+"\n"+cheminDestination);
         
         mProgress = (ProgressBar)findViewById(R.id.progressBar2);
         
@@ -46,12 +46,20 @@ public class Vue_chargement_devoiler_Activity extends Activity{
         		}
         	}
         }).start();
+
+
+
+
+        Stegano_image stegano = new Stegano_image("", "");
+        stegano.devoilerDonnee(image_a_devoiler, cheminDestination, mdp);
+
+
         
         
     }
 	//à appeler a la fin du chargement !
 	public void finish(){
-		new PopupErreur().display(this, "le fichier qui etait cacher est sauvegarder dans:\n"+ enveloppeModifier);
+		new PopupErreur().display(this, "le fichier qui etait cacher est sauvegarder dans:\n"+ cheminDestination);
 	}
 
 }

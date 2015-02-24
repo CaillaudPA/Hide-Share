@@ -2,6 +2,7 @@ package com.hide_n_share.android.utilitaire;
 
 
 import java.io.File;
+import java.util.Date;
 
 import android.app.Activity;
 import android.database.Cursor;
@@ -47,8 +48,8 @@ public class FonctionUtile {
 		while((new File(directory+"/"+i+"."+extensionFichier).exists())){
 			i++;
 		}
-
-		File aRetourner = new File(directory+"/"+i+"."+extensionFichier);
+        Date date = new Date();
+		File aRetourner = new File(directory+"/"+date.getDay()+"_"+date.getMonth()+"_"+date.getYear()+"_"+i+"."+extensionFichier);
 		return aRetourner.getPath();
 	}
 

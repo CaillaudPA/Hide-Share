@@ -15,15 +15,12 @@ public class Data {
 	public final static String cheminDeSauvegarde = 
 			Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath()+"/HIDE_N_SHARE";
 	
-	public final static String cheminDossierDissimuler = cheminDeSauvegarde+"/dissimuler";
-	public final static String cheminDossierDevoiler = cheminDeSauvegarde+"/devoiler";
+	public final static String cheminDossierDissimuler = cheminDeSauvegarde+"/HNS_dissimuler";
+	public final static String cheminDossierDevoiler = cheminDeSauvegarde+"/HNS_devoiler";
 	
 	
 	public final static int photoAPrendre = 1;
 	public final static int photoExistante = 2;
 	public final static int fichierQuelconque = 3;
-	
-	
-	
 	
 }
