@@ -13,8 +13,6 @@ import android.widget.RadioButton;
 
 public class Vue_saisir_mdp_Activity extends Activity implements OnClickListener{
 	
-	private RadioButton radioOui;
-	private RadioButton radioNon;
 	private Button boutonValider;
 	
 	String image_a_devoiler = "";
@@ -27,23 +25,10 @@ public class Vue_saisir_mdp_Activity extends Activity implements OnClickListener
         
         boutonValider = (Button)findViewById(R.id.boutonVueCacherCacherTexte);
         boutonValider.setOnClickListener(this);
-        
-        radioOui = (RadioButton)findViewById(R.id.radioButton2);
-		radioNon = (RadioButton)findViewById(R.id.radioButton1);
+
 
 		image_a_devoiler = getIntent().getStringExtra(Data.EXTRA_IMG_A_DEVOILER);
 		
-    }
-	
-    public void onRadioButtonClicked(View view){
-        // Check which radio button was clicked
-        if(view.equals(radioOui) && radioNon.isChecked()) {
-        	radioNon.setChecked(false);
-        	radioOui.setChecked(false);
-        }else
-        {
-        	radioOui.setChecked(false);
-        }
     }
     
 	public void onClick(View arg0) {
@@ -51,11 +36,14 @@ public class Vue_saisir_mdp_Activity extends Activity implements OnClickListener
 			
 			mdp = ((EditText) findViewById(R.id.zoneSaisieVueCacherTexte)).getText().toString();
 			
+			String nomFichierCacher = ((EditText)findViewById(R.id.nomFichierCache)).getText().toString();
+			
 			
 			Intent intent = new Intent(this, Vue_chargement_devoiler_Activity.class);
 			
 			intent.putExtra(Data.EXTRA_IMG_A_DEVOILER,image_a_devoiler);
 			intent.putExtra(Data.EXTRA_MDP, mdp);
+			intent.putExtra(Data.EXTRA_NOM_FICHIER_CACHER, nomFichierCacher);
 			startActivity(intent);
 			finish();
 		}

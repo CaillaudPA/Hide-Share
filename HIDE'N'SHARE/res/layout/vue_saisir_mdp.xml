@@ -5,7 +5,7 @@
     android:background="@string/fond"
     android:id="@+id/vue_saisir_mdp">
 
-	<GridLayout        
+	<GridLayout
 	    android:id="@+id/layout1_1_vue_saisir_mdp"
         android:layout_width="@dimen/dimenssionCentre"
         android:layout_height="wrap_content"
@@ -16,17 +16,17 @@
 			
 		<GridLayout
 	        android:id="@+id/layout1_1_1_vue_saisir_mdp"
-	        android:layout_width="wrap_content"
+	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:columnCount="1"
-       		android:rowCount="5"
+       		android:rowCount="3"
 	        android:layout_column="0"
             android:layout_row="0">
 	        
 	        <TextView
 	        	android:id="@+id/Texte1VueCacher"
-	        	android:text="La donnée est-elle compressée ?"
-	        	android:layout_width="wrap_content"
+	        	android:text="indiquer le nom du fichier caché"
+	        	android:layout_width="match_parent"
 	        	android:layout_height="wrap_content"
 	        	android:textSize="@dimen/tailleTexteEnHaut"
 	        	android:textColor="@color/couleurTexte"
@@ -40,37 +40,14 @@
             	android:layout_column="0"
             	android:layout_row="1"/>
 	        
-	        <RadioGroup
-	        android:layout_width="fill_parent"
-    		android:layout_height="wrap_content"
-    		android:orientation="vertical">
-	        
-		    <RadioButton
-		        android:id="@+id/radioButton1"
-       			android:layout_width="@dimen/dimenssionCentre"
-		        android:layout_height="wrap_content"
-	            android:background="@color/bgBouton"
-	        	android:textColor="@color/couleurTexte"
-		        android:text="non"
-		        android:layout_column="0"
-            	android:layout_row="2"/>
-		    
-		       <View        
-		    	android:layout_width="match_parent"
-	        	android:layout_height="@dimen/espaceBouton"
-            	android:layout_column="0"
-            	android:layout_row="3"/>
-		    		
-		    <RadioButton
-		        android:id="@+id/radioButton2"
-       	 		android:layout_width="@dimen/dimenssionCentre"
-		        android:layout_height="wrap_content"
-	            android:background="@color/bgBouton"
-	        	android:textColor="@color/couleurTexte"
-		        android:text="oui"
-		        android:layout_column="0"
-            	android:layout_row="4"/>
-		    </RadioGroup>
+	        <EditText
+	            android:id="@+id/nomFichierCache"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+	            android:background="@color/white"
+	            android:layout_column="0"
+	            android:layout_row="2"
+	            android:hint=""/>       
 		    
 		</GridLayout>
 		
@@ -82,7 +59,7 @@
 		
 		<GridLayout
 		    android:id="@+id/layout1_1_2_vue_saisir_mdp"
-	        android:layout_width="@dimen/dimenssionCentre"
+	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:columnCount="1"
        		android:rowCount="5"

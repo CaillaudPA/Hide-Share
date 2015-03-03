@@ -29,15 +29,15 @@ public class Vue_chargement_dissimuler_Activity extends Activity {
         motsDePasse = getIntent().getStringExtra(Data.EXTRA_MDP);
 
         //new PopupErreur().display(this, pathLettre+"\n"+pathEnveloppe+"\n"+compresser+"\n"+motsDePasse);
-
-
-
-
-
-        Stegano_image stegano = new Stegano_image(pathLettre, pathEnveloppe);
-        stegano.dissimulerDonnee(imageDestination, compresser, motsDePasse);
+        
+        new Thread(new Runnable(){
+        	public void run() {
+                Stegano_image stegano = new Stegano_image(pathLettre, pathEnveloppe);
+                stegano.dissimulerDonnee(imageDestination, compresser, motsDePasse);
+                finish();
+        	}
+        }).start();
         FonctionUtile.actualiseMedia(this, new File(imageDestination));
-        finish();
 
     }
     //à appeler a la fin du chargement !

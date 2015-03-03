@@ -25,7 +25,8 @@ public class Vue_chargement_devoiler_Activity extends Activity{
         
         image_a_devoiler = getIntent().getStringExtra(Data.EXTRA_IMG_A_DEVOILER);  
         mdp = getIntent().getStringExtra(Data.EXTRA_MDP);
-        cheminDestination = FonctionUtile.genererNomFichierInexistant(Data.cheminDossierDevoiler, "txt");
+        cheminDestination = Data.cheminDossierDevoiler + "/" + getIntent().getStringExtra(Data.EXTRA_NOM_FICHIER_CACHER);
+        
         
         //new PopupErreur().display(this, image_a_devoiler+"\n"+mdp+"\n"+cheminDestination);
         

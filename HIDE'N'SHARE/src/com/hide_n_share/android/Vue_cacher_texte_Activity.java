@@ -43,7 +43,7 @@ public class Vue_cacher_texte_Activity extends Activity implements OnClickListen
 			}else{
 				//creations fichier contenant le message à cacher
 								
-				File file = new File(getFilesDir(),"myfile");
+				File file = new File(Data.fichierTexteCacher);
 				GestionFichier.fluxEnFichier(file.getPath(),texteSaisie.getBytes());
 				
 				Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);

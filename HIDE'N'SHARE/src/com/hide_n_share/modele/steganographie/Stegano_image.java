@@ -204,7 +204,7 @@ public class Stegano_image extends Steganographie{
             //si le format d'image n'est pas compatible mais peut etre converti en bmp
             if(formatConvertissable.contains(tmpString[1])){
                 System.out.println("le format de l'image n'est pas compatible, il sera donc converti en format png, (penser a changer l'extension de l'image modifier !)");
-                File enveloppeTmp = new File(Data.cheminDeSauvegarde+"/imgTmp.png");
+                File enveloppeTmp = new File(Data.imageConvertie);
 
 
                 try{
@@ -215,7 +215,7 @@ public class Stegano_image extends Steganographie{
 
                     ecrireImage(enveloppeTmp, envTest);
 
-                    enveloppe.setEnveloppe(Data.cheminDeSauvegarde+"/imgTmp.png");
+                    enveloppe.setEnveloppe(Data.imageConvertie);
 
                     while(!enveloppeTmp.exists()){System.out.println(enveloppeTmp.getPath());}
 
