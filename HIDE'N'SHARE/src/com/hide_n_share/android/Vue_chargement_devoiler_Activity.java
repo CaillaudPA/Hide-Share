@@ -18,6 +18,8 @@ public class Vue_chargement_devoiler_Activity extends Activity{
 	String mdp = "";
 	String cheminDestination = "";
 
+	final Activity act = this;
+	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,13 +34,20 @@ public class Vue_chargement_devoiler_Activity extends Activity{
         
         mProgress = (ProgressBar)findViewById(R.id.progressBar2);
         
+        
         new Thread(new Runnable(){
         	public void run() {
         		// TODO Auto-generated method stub
+
+                Stegano_image stegano = new Stegano_image("", "",act,mProgress);
+                stegano.devoilerDonnee(image_a_devoiler, cheminDestination, mdp);
+
+        		
         		while(i<100){
         			i++;
         			mProgress.setProgress(i);
         			try {
+        				
         				Thread.sleep(100);
         			} catch (InterruptedException e) {
         				// TODO Auto-generated catch block
@@ -47,12 +56,6 @@ public class Vue_chargement_devoiler_Activity extends Activity{
         		}
         	}
         }).start();
-
-
-
-
-        Stegano_image stegano = new Stegano_image("", "");
-        stegano.devoilerDonnee(image_a_devoiler, cheminDestination, mdp);
 
 
         

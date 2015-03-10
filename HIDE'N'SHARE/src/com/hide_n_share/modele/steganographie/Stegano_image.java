@@ -1,10 +1,18 @@
 package com.hide_n_share.modele.steganographie;
 
+import android.app.Activity;
 import android.graphics.*;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.hide_n_share.android.utilitaire.Data;
+import com.hide_n_share.android.utilitaire.PopupErreur;
 import com.hide_n_share.modele.classeStatic.*;
 import com.hide_n_share.modele.steganographie.Color;
+
+
+
+
 
 
 //import javax.imageio.*;
@@ -25,7 +33,9 @@ public class Stegano_image extends Steganographie{
 
     private Set<String> formatCompatible = new HashSet<String>();
     private Set<String> formatConvertissable = new HashSet<String>();
-
+    
+    private ProgressBar chargement;
+    private Activity activity;
 
     public Stegano_image(String lettre, String enveloppe){
         super(lettre,enveloppe);
@@ -35,6 +45,20 @@ public class Stegano_image extends Steganographie{
         //formatConvertissable.add("gif");
         formatConvertissable.add("jpg");
         formatConvertissable.add("jpeg");
+        chargement = null;
+        activity = null;
+    }
+    
+    public Stegano_image(String lettre, String enveloppe, Activity act, ProgressBar charg){
+        super(lettre,enveloppe);
+        formatCompatible.add("bmp");
+        formatCompatible.add("png");
+        //formatCompatible.add("gif");
+        //formatConvertissable.add("gif");
+        formatConvertissable.add("jpg");
+        formatConvertissable.add("jpeg");
+        chargement = charg;
+        activity = act;
     }
 
     //i le numeros de l'algo a utilisé
@@ -120,8 +144,6 @@ public class Stegano_image extends Steganographie{
                 //ImageIO.write(enveloppe, tmpString[1], outputfile);
 
                 ecrireImage(outputfile, enveloppe);
-
-
             }catch(Exception e){
                 e.printStackTrace();
             }
@@ -180,10 +202,16 @@ public class Stegano_image extends Steganographie{
     public boolean verificationCompabilite(boolean compresser, String mdp){
         //test fichier existant
         if(!new File(lettre.getLettre()).exists()){
+        	if(activity != null){
+        		new PopupErreur().display(activity, "lettre inéxistant");
+        	}
             System.out.println("lettre inéxistant");
             return false;
         }
         if (!new File(enveloppe.getEnveloppe()).exists()) {
+        	if(activity != null){
+        		new PopupErreur().display(activity, "enveloppe inéxistant");
+        	}
             System.out.println("enveloppe inéxistant");
             return false;
         }
@@ -203,7 +231,11 @@ public class Stegano_image extends Steganographie{
         if (tmpString.length ==2 ){
             //si le format d'image n'est pas compatible mais peut etre converti en bmp
             if(formatConvertissable.contains(tmpString[1])){
-                System.out.println("le format de l'image n'est pas compatible, il sera donc converti en format png, (penser a changer l'extension de l'image modifier !)");
+            	if(activity != null){
+            		Toast.makeText(activity, "le format de l'image n'est pas compatible, il sera donc converti en format png, (penser a changer l'extension de l'image modifier !)", Toast.LENGTH_SHORT);
+            	}
+            	
+            	System.out.println("le format de l'image n'est pas compatible, il sera donc converti en format png, (penser a changer l'extension de l'image modifier !)");
                 File enveloppeTmp = new File(Data.imageConvertie);
 
 
@@ -217,13 +249,18 @@ public class Stegano_image extends Steganographie{
 
                     enveloppe.setEnveloppe(Data.imageConvertie);
 
-                    while(!enveloppeTmp.exists()){System.out.println(enveloppeTmp.getPath());}
+                    while(!enveloppeTmp.exists()){}
 
                     envTest = BitmapFactory.decodeFile(enveloppe.getEnveloppe());
 
                     int nbrPixel = envTest.getHeight()*envTest.getWidth();
 
                     if(lettreTmp.length > (nbrPixel*3-tailleBitsLongueurLettre)/8){
+                    	if(activity != null){
+                    		new PopupErreur().display(activity, "taille de la lettre trop grande, "
+                    				+ "l'enveloppe ne peut que contenir au maximum: "+(nbrPixel*3-32)/8+" octets\n"
+                    						+ "la lettre actuelle fait: "+lettreTmp.length+" octets");
+                    	}
                         System.out.println("taille de la lettre trop grande, l'enveloppe ne peut que contenir au maximum: "+(nbrPixel*3-32)/8+" octets");
                         System.out.println("la lettre actuelle fait: "+lettreTmp.length+" octets");
                         return false;
@@ -231,6 +268,10 @@ public class Stegano_image extends Steganographie{
                         return true;
                     }
                 }catch(Exception e){
+                	if(activity != null){
+                		new PopupErreur().display(activity, "une erreur est parvenue lors de la convertion de l'image: " + e);
+                	}
+                	
                     System.out.println("une erreur est parvenue lors de la convertion de l'image: ");
                     System.out.println(e);
                     return false;
@@ -242,6 +283,11 @@ public class Stegano_image extends Steganographie{
                     int nbrPixel = envTest.getHeight()*envTest.getWidth();
 
                     if(lettreTmp.length > (nbrPixel*3-tailleBitsLongueurLettre)/8){
+                    	if(activity != null){
+                    		new PopupErreur().display(activity, "taille de la lettre trop grande, "
+                    				+ "l'enveloppe ne peut que contenir au maximum: "+(nbrPixel*3-32)/8+" octets\n"
+                    						+ "la lettre actuelle fait: "+lettreTmp.length+" octets");
+                    	}
                         System.out.println("taille de la lettre trop grande, l'enveloppe ne peut que contenir au maximum: "+(nbrPixel*3-32)/8+" octets");
                         System.out.println("la lettre actuelle fait: "+lettreTmp.length+" octets");
                         return false;
@@ -250,16 +296,26 @@ public class Stegano_image extends Steganographie{
                     }
 
                 }catch(Exception e){
+                	if(activity != null){
+                		new PopupErreur().display(activity, "une erreur est parvenue "
+                				+ "lors de l'ouverture de l'image: \n" + e);
+                	}
                     System.out.println("une erreur est parvenue lors de l'ouverture de l'image: ");
                     System.out.println(e);
                     return false;
                 }
 
             }else{
+            	if(activity != null){
+            		new PopupErreur().display(activity, "le format de l'image n'est pas connue");
+            	}
                 System.out.println("le format de l'image n'est pas connue");
                 return false;
             }
         }else{
+        	if(activity != null){
+        		new PopupErreur().display(activity, "le nom de l'enveloppe doit contenir l'extension précédé d'un point");
+        	}
             System.out.println("le nom de l'enveloppe doit contenir l'extension précédé d'un point");
             return false;
         }
@@ -393,6 +449,9 @@ public class Stegano_image extends Steganographie{
             System.out.println("taille total : "+(tailleLettre+tailleTotalReserver/8));
             GestionFichier.fluxEnFichier(cheminLettre, fichierCacher);
         }catch(Exception e){
+        	if(activity != null){
+        		new PopupErreur().display(activity, "une erreur est parvenue lors de l'extraction des données de l'image: \n" + e);
+        	}
             System.out.println(e);
         }
     }
