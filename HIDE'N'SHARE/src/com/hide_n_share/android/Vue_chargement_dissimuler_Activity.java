@@ -5,13 +5,18 @@ import java.io.File;
 import com.hide_n_share.android.utilitaire.Data;
 import com.hide_n_share.android.utilitaire.FonctionUtile;
 import com.hide_n_share.android.utilitaire.PopupErreur;
+import com.hide_n_share.android.utilitaire.QuitterOuEnvoyerImg;
 import com.hide_n_share.modele.steganographie.Stegano_image;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 public class Vue_chargement_dissimuler_Activity extends Activity {
     private ProgressBar mProgress;
@@ -61,7 +66,7 @@ public class Vue_chargement_dissimuler_Activity extends Activity {
 
 
                 Stegano_image stegano = new Stegano_image(pathLettre, pathEnveloppe,act,chargement);
-                stegano.dissimulerDonnee(imageDestination, compresser, motsDePasse);
+                boolean resultat = stegano.dissimulerDonnee(imageDestination, compresser, motsDePasse);                
 
                 try {
                     Thread.sleep(1000);
@@ -71,12 +76,12 @@ public class Vue_chargement_dissimuler_Activity extends Activity {
                 mProgress.setProgress(100);
                 FonctionUtile.actualiseMedia(act, new File(imageDestination));
                 
+                if(resultat){
+                	new QuitterOuEnvoyerImg().display(act,imageDestination);
+                }else{
+                	new PopupErreur().display(act, "");
+                }
                 
-                Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.putExtra("sms_body", "tamer");
-                intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(imageDestination)));
-                intent.setType("image/png"); 
-                startActivity(Intent.createChooser(intent,"Send"));
             }
         }).start();
 
