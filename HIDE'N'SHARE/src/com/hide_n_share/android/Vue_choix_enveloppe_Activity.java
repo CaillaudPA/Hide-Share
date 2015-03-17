@@ -70,7 +70,6 @@ public class Vue_choix_enveloppe_Activity extends Activity implements OnClickLis
 				intent.putExtra(Data.EXTRA_LETTRE,pathDonneeCachee);		
 				
 				startActivity(intent);
-				finish();
 			}else if(requestCode == Data.photoExistante){
                 imageUri = data.getData();
                 
@@ -79,7 +78,6 @@ public class Vue_choix_enveloppe_Activity extends Activity implements OnClickLis
 				intent.putExtra(Data.EXTRA_LETTRE,pathDonneeCachee);
 				
 				startActivity(intent);
-				finish();
 			}
 		}		
 	}

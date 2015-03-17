@@ -9,6 +9,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ProgressBar;
 
+import java.io.File;
+
 public class Vue_chargement_devoiler_Activity extends Activity{
 
 	private ProgressBar mProgress;
@@ -18,7 +20,8 @@ public class Vue_chargement_devoiler_Activity extends Activity{
 	String mdp = "";
 	String cheminDestination = "";
 
-	final Activity act = this;
+    final Activity act = this;
+    int[] chargement = {0};
 	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,31 +36,39 @@ public class Vue_chargement_devoiler_Activity extends Activity{
         //new PopupErreur().display(this, image_a_devoiler+"\n"+mdp+"\n"+cheminDestination);
         
         mProgress = (ProgressBar)findViewById(R.id.progressBar2);
-        
-        
+
+
         new Thread(new Runnable(){
-        	public void run() {
-        		// TODO Auto-generated method stub
-
-                Stegano_image stegano = new Stegano_image("", "",act,mProgress);
-                stegano.devoilerDonnee(image_a_devoiler, cheminDestination, mdp);
-
-        		
-        		while(i<100){
-        			i++;
-        			mProgress.setProgress(i);
-        			try {
-        				
-        				Thread.sleep(100);
-        			} catch (InterruptedException e) {
-        				// TODO Auto-generated catch block
-        				e.printStackTrace();
-        			}
-        		}
-        	}
+            public void run() {
+                int tmp = 0;
+                while(chargement[0]<100){
+                    if (tmp != chargement[0]){
+                        mProgress.setProgress(chargement[0]);
+                        tmp = chargement[0];
+                    }
+                }
+            }
         }).start();
 
+        new Thread(new Runnable(){
+            public void run() {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
+                Stegano_image stegano = new Stegano_image("", "",act,chargement);
+                stegano.devoilerDonnee(image_a_devoiler, cheminDestination, mdp);
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                mProgress.setProgress(100);
+            }
+        }).start();
         
         
     }

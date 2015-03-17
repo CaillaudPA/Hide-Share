@@ -68,13 +68,13 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
 				
 		}else if(arg0.equals(fichierQuelconque)){
 			 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-		     intent.setType("*/*");
+		     intent.setType("*/");
              startActivityForResult(Intent.createChooser(intent,"Select File"), Data.fichierQuelconque);
 			
 		}else{
 			Intent intent = new Intent(this, Vue_cacher_texte_Activity.class);
 			startActivity(intent);
-			finish();
+
 		}
 	} 
 	
@@ -87,7 +87,7 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
 				Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
 				intent.putExtra(Data.EXTRA_LETTRE,FonctionUtile.getRealPathFromURI(this,imageUri));
 				startActivity(intent);
-				finish();
+
 
             }
             if (requestCode == Data.fichierQuelconque) {	
@@ -95,13 +95,13 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
 				Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
 				intent.putExtra(Data.EXTRA_LETTRE,FonctionUtile.getRealPathFromURI(this,imageUri));
 				startActivity(intent);
-				finish();
+
             }
             if (requestCode == Data.photoAPrendre){
     			Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
 				intent.putExtra(Data.EXTRA_LETTRE,FonctionUtile.getRealPathFromURI(this,imageUri));
 				startActivity(intent);
-				finish();
+
             }
         }
     }

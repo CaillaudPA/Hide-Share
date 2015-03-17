@@ -36,11 +36,12 @@ public class Vue_chiffrement_compression extends Activity implements OnClickList
 		switch1 = (Switch) findViewById(R.id.switchCompresserDonnee);
 		
 		zoneSaisie = (EditText)findViewById(R.id.mdpVueChiffrement);
-		
+
+
 		pathLettre = getIntent().getStringExtra(Data.EXTRA_LETTRE);  
 		pathEnveloppe = getIntent().getStringExtra(Data.EXTRA_ENVELOPPE);
-		
-			
+
+        zoneSaisie.clearFocus();
 	}
 	
 	public void onClick(View arg0) {
@@ -55,7 +56,6 @@ public class Vue_chiffrement_compression extends Activity implements OnClickList
 			intent.putExtra(Data.EXTRA_MDP,motsDePasse);
 			
 			startActivity(intent);
-			finish();
 		}
 	}
 }

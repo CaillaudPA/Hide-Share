@@ -45,7 +45,6 @@ public class Vue_saisir_mdp_Activity extends Activity implements OnClickListener
 			intent.putExtra(Data.EXTRA_MDP, mdp);
 			intent.putExtra(Data.EXTRA_NOM_FICHIER_CACHER, nomFichierCacher);
 			startActivity(intent);
-			finish();
 		}
 		
 	} 

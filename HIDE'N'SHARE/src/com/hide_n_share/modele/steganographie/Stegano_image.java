@@ -10,13 +10,6 @@ import com.hide_n_share.android.utilitaire.PopupErreur;
 import com.hide_n_share.modele.classeStatic.*;
 import com.hide_n_share.modele.steganographie.Color;
 
-
-
-
-
-
-//import javax.imageio.*;
-//import java.awt.image.*;
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -34,7 +27,7 @@ public class Stegano_image extends Steganographie{
     private Set<String> formatCompatible = new HashSet<String>();
     private Set<String> formatConvertissable = new HashSet<String>();
     
-    private ProgressBar chargement;
+    private int[] chargement;
     private Activity activity;
 
     public Stegano_image(String lettre, String enveloppe){
@@ -45,18 +38,15 @@ public class Stegano_image extends Steganographie{
         //formatConvertissable.add("gif");
         formatConvertissable.add("jpg");
         formatConvertissable.add("jpeg");
-        chargement = null;
+
+        chargement = new int[1];
+        chargement[0] = -1;
+
         activity = null;
     }
     
-    public Stegano_image(String lettre, String enveloppe, Activity act, ProgressBar charg){
-        super(lettre,enveloppe);
-        formatCompatible.add("bmp");
-        formatCompatible.add("png");
-        //formatCompatible.add("gif");
-        //formatConvertissable.add("gif");
-        formatConvertissable.add("jpg");
-        formatConvertissable.add("jpeg");
+    public Stegano_image(String lettre, String enveloppe, Activity act, int[] charg){
+        this(lettre, enveloppe);
         chargement = charg;
         activity = act;
     }
@@ -91,6 +81,8 @@ public class Stegano_image extends Steganographie{
                 int curseurBit = 0;
                 for(int y = 0;y<enveloppe.getHeight();y++){
                     for (int x=0;x<enveloppe.getWidth();x++){
+                        int pourcentage = curseurBit*100/lettreEnSuiteDeBits.length;
+
                         Color tmpCouleur = new Color(enveloppe.getPixel(x,y));
 
                         int red = this.decallerBit(tmpCouleur.getRed());
@@ -131,6 +123,11 @@ public class Stegano_image extends Steganographie{
                             x = enveloppe.getWidth();
                             y = enveloppe.getHeight();
                         }
+
+                        //chargement
+                        if (chargement[0] != -1){
+                            chargement[0] = pourcentage;
+                        }
                     }
                 }
 
@@ -144,6 +141,10 @@ public class Stegano_image extends Steganographie{
                 //ImageIO.write(enveloppe, tmpString[1], outputfile);
 
                 ecrireImage(outputfile, enveloppe);
+                chargement[0] = 100;
+                if(activity != null){
+                    new PopupErreur().display(activity, "la nouvelle image ce trouve dans: " + outputfile.getPath());
+                }
             }catch(Exception e){
                 e.printStackTrace();
             }
@@ -231,10 +232,6 @@ public class Stegano_image extends Steganographie{
         if (tmpString.length ==2 ){
             //si le format d'image n'est pas compatible mais peut etre converti en bmp
             if(formatConvertissable.contains(tmpString[1])){
-            	if(activity != null){
-            		Toast.makeText(activity, "le format de l'image n'est pas compatible, il sera donc converti en format png, (penser a changer l'extension de l'image modifier !)", Toast.LENGTH_SHORT);
-            	}
-            	
             	System.out.println("le format de l'image n'est pas compatible, il sera donc converti en format png, (penser a changer l'extension de l'image modifier !)");
                 File enveloppeTmp = new File(Data.imageConvertie);
 
@@ -398,6 +395,8 @@ public class Stegano_image extends Steganographie{
             int[] fichierCacherBits = new int[tailleLettre*8];
             for(int y = 0;y<enveloppe.getHeight();y++){
                 for(int x = 0;x<enveloppe.getWidth();x++){
+                    int pourcentage = curseurBits*100/tailleLettre*8+tailleTotalReserver;
+
                     tmpColor = new Color(enveloppe.getPixel(x, y));
                     red = tmpColor.getRed();
                     green = tmpColor.getGreen();
@@ -435,6 +434,9 @@ public class Stegano_image extends Steganographie{
                         y = enveloppe.getHeight();
                         break;
                     }
+                    if (chargement[0] != -1){
+                        chargement[0] = pourcentage;
+                    }
                 }
             }
             byte[] fichierCacher = intEnBytes(fichierCacherBits);
@@ -448,11 +450,15 @@ public class Stegano_image extends Steganographie{
 
             System.out.println("taille total : "+(tailleLettre+tailleTotalReserver/8));
             GestionFichier.fluxEnFichier(cheminLettre, fichierCacher);
+
+            if(activity != null){
+                new PopupErreur().display(activity, "l'extraction de la donnée est finit. La donnée à été placéde dans le dossier: " +cheminLettre);
+            }
         }catch(Exception e){
         	if(activity != null){
-        		new PopupErreur().display(activity, "une erreur est parvenue lors de l'extraction des données de l'image: \n" + e);
+        		new PopupErreur().display(activity, "une erreur est parvenue lors de l'extraction des données de l'image\n");
         	}
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 

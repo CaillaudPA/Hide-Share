@@ -29,6 +29,8 @@ public class Vue_cacher_texte_Activity extends Activity implements OnClickListen
 		valider.setOnClickListener(this);	
 		
 		zoneSaisie = (EditText)findViewById(R.id.zoneSaisieVueCacherTexte);
+
+        zoneSaisie.clearFocus();
     }
 	
 	
@@ -49,7 +51,6 @@ public class Vue_cacher_texte_Activity extends Activity implements OnClickListen
 				Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
 				intent.putExtra(Data.EXTRA_LETTRE,file.getPath());
 				startActivity(intent);
-				finish();
 			}
 		}
 	}

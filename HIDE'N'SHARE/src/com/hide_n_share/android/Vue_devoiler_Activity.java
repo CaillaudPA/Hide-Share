@@ -40,7 +40,6 @@ public class Vue_devoiler_Activity extends Activity implements OnClickListener {
     			Intent intent = new Intent(this, Vue_saisir_mdp_Activity.class);
     			intent.putExtra(Data.EXTRA_IMG_A_DEVOILER,FonctionUtile.getRealPathFromURI(this, imageUri));
     			startActivity(intent);
-    			finish();
 			}
         }
     }
