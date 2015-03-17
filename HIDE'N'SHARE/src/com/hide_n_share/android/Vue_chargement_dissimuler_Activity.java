@@ -8,6 +8,8 @@ import com.hide_n_share.android.utilitaire.PopupErreur;
 import com.hide_n_share.modele.steganographie.Stegano_image;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ProgressBar;
 
@@ -68,6 +70,13 @@ public class Vue_chargement_dissimuler_Activity extends Activity {
                 }
                 mProgress.setProgress(100);
                 FonctionUtile.actualiseMedia(act, new File(imageDestination));
+                
+                
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.putExtra("sms_body", "tamer");
+                intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(imageDestination)));
+                intent.setType("image/png"); 
+                startActivity(Intent.createChooser(intent,"Send"));
             }
         }).start();
 
