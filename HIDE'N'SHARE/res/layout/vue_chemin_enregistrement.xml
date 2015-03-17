@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?><RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:background="@string/fond"
+	android:background="@color/fond"
 	android:id="@+id/vue_chemin_enregistrement">
 
 	
@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/bgBouton"
-            android:text="Validé"
+            android:text="Valider"
             android:textColor="@color/white"
 	    	android:layout_alignParentBottom="true"/>
     	

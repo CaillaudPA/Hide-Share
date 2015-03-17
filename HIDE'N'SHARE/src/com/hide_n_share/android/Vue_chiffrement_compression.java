@@ -11,8 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 
-
-
 public class Vue_chiffrement_compression extends Activity implements OnClickListener {
 	
 	String pathLettre = "";

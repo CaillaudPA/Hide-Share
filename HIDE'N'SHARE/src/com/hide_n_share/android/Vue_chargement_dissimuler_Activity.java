@@ -24,7 +24,7 @@ public class Vue_chargement_dissimuler_Activity extends Activity {
     String pathLettre = "";
     String pathEnveloppe = "";
     String motsDePasse = "";
-    boolean compresser=false;
+    boolean compresser = false;
 
     String imageDestination = FonctionUtile.genererNomFichierInexistant(Data.cheminDossierDissimuler, "png");
 
