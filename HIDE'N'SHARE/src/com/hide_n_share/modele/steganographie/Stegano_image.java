@@ -53,7 +53,7 @@ public class Stegano_image extends Steganographie{
 
     //i le numeros de l'algo a utilisé
     //1= remplacer le bit de poids faible de chaque couleur
-    public void dissimulerDonnee(String cheminEnveloppeModifier, boolean compresserLettre, String mdp){
+    public boolean dissimulerDonnee(String cheminEnveloppeModifier, boolean compresserLettre, String mdp){
         if ((this.verificationCompabilite(compresserLettre, mdp))) {
             try{
                 Bitmap enveloppeA = BitmapFactory.decodeFile(this.enveloppe.getEnveloppe());
@@ -142,13 +142,14 @@ public class Stegano_image extends Steganographie{
 
                 ecrireImage(outputfile, enveloppe);
                 chargement[0] = 100;
-                if(activity != null){
-                    new PopupErreur().display(activity, "la nouvelle image ce trouve dans: " + outputfile.getPath());
-                }
+                
+                return true;
             }catch(Exception e){
                 e.printStackTrace();
+                return false;
             }
         }
+        return false;
     }
 
     public int recupererBit(int octet, int position){
@@ -319,7 +320,7 @@ public class Stegano_image extends Steganographie{
     }
 
 
-    public void devoilerDonnee(String cheminEnveloppe,String cheminLettre, String mdp) {
+    public boolean devoilerDonnee(String cheminEnveloppe,String cheminLettre, String mdp) {
         boolean lettreCompresser = false;
         try{
             Bitmap enveloppe = BitmapFactory.decodeFile(cheminEnveloppe);
@@ -450,15 +451,17 @@ public class Stegano_image extends Steganographie{
 
             System.out.println("taille total : "+(tailleLettre+tailleTotalReserver/8));
             GestionFichier.fluxEnFichier(cheminLettre, fichierCacher);
-
+            
             if(activity != null){
-                new PopupErreur().display(activity, "l'extraction de la donnée est finit. La donnée à été placéde dans le dossier: " +cheminLettre);
+                new PopupErreur().display(activity, "l'extraction de la donnée est fini. La donnée à été placéde dans le dossier: " +cheminLettre);
             }
+            return true;
         }catch(Exception e){
         	if(activity != null){
         		new PopupErreur().display(activity, "une erreur est parvenue lors de l'extraction des données de l'image\n");
         	}
             e.printStackTrace();
+            return false;
         }
     }
 

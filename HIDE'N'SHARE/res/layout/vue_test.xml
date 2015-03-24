@@ -4,11 +4,12 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@string/fond"
+    android:background="@color/fond"
     android:orientation="vertical" >
 
         <Button
             android:id="@+id/boutonTest"
+            
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_alignParentLeft="true"
