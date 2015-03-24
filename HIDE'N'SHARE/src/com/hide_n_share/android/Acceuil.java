@@ -24,6 +24,7 @@ public class Acceuil extends Activity implements OnClickListener{
         if (getIntent().getBooleanExtra("EXIT", false)) {
             finish();
         }
+        
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_acceuil);
 
