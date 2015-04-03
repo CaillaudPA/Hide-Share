@@ -5,15 +5,20 @@ import com.hide_n_share.android.utilitaire.Data;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
+import android.widget.TextView.OnEditorActionListener;
 
-public class Vue_saisir_mdp_Activity extends Activity implements OnClickListener{
+public class Vue_saisir_mdp_Activity extends Activity{
 	
 	private Button boutonValider;
+	private EditText editText;
 	
 	String image_a_devoiler = "";
 	String mdp="";
@@ -24,28 +29,43 @@ public class Vue_saisir_mdp_Activity extends Activity implements OnClickListener
         setContentView(R.layout.vue_saisir_mdp);
         
         boutonValider = (Button)findViewById(R.id.boutonVueCacherCacherTexte);
-        boutonValider.setOnClickListener(this);
+        boutonValider.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View arg0) {
+				validerMDP();
+				
+			}
+		});
 
 
 		image_a_devoiler = getIntent().getStringExtra(Data.EXTRA_IMG_A_DEVOILER);
 		
+		editText = (EditText) findViewById(R.id.zoneSaisieVueCacherTexte);
+		editText.setOnEditorActionListener(new OnEditorActionListener() {
+		    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+		        boolean handled = false;
+		        if (actionId == EditorInfo.IME_ACTION_SEND) {
+		            validerMDP();
+		            handled = true;
+		        }
+		        return handled;
+		    }
+
+		});
     }
     
-	public void onClick(View arg0) {
-		if (arg0.equals(boutonValider)) {
+	public void validerMDP() {
+		mdp = editText.getText().toString();
 			
-			mdp = ((EditText) findViewById(R.id.zoneSaisieVueCacherTexte)).getText().toString();
-			
-			String nomFichierCacher = ((EditText)findViewById(R.id.nomFichierCache)).getText().toString();
+		String nomFichierCacher = ((EditText)findViewById(R.id.nomFichierCache)).getText().toString();
 			
 			
-			Intent intent = new Intent(this, Vue_chargement_devoiler_Activity.class);
+		Intent intent = new Intent(this, Vue_chargement_devoiler_Activity.class);
 			
-			intent.putExtra(Data.EXTRA_IMG_A_DEVOILER,image_a_devoiler);
-			intent.putExtra(Data.EXTRA_MDP, mdp);
-			intent.putExtra(Data.EXTRA_NOM_FICHIER_CACHER, nomFichierCacher);
-			startActivity(intent);
-		}
+		intent.putExtra(Data.EXTRA_IMG_A_DEVOILER,image_a_devoiler);
+		intent.putExtra(Data.EXTRA_MDP, mdp);
+		intent.putExtra(Data.EXTRA_NOM_FICHIER_CACHER, nomFichierCacher);
+		startActivity(intent);
 		
 	} 
 }

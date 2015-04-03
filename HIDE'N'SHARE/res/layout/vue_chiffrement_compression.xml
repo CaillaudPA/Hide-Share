@@ -34,7 +34,8 @@
         android:layout_margin="15dp"
         android:password="true"
         android:hint="Mot de passe (optionnel) ... "
-        android:background="#FFFFFF"/>
+        android:background="#FFFFFF"
+        android:imeOptions="actionSend"/>
 
 
         <Button

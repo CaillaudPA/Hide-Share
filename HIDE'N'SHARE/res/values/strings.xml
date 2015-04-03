@@ -13,4 +13,14 @@
 	<dimen name="dimenssionCentre">250dp</dimen>
 	<dimen name="tailleTexteEnHaut">25sp</dimen>
 	<dimen name="espaceBouton">20dp</dimen>
+	<string name="nom_appli">
+	    <b>Hide\'N\'Share</b>
+	</string>
+	<string name="message_acceuil">
+		Cette application vous permet de dissimuler des fichiers dans
+		des images pour les échanger en toute confidentialité.
+	</string>
+	<string name="choix">
+		<i>Que désirez vous faire ?</i>
+	</string>
 </resources>

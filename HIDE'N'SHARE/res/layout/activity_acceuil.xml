@@ -7,13 +7,14 @@
     android:background="@drawable/fond"
     android:orientation="vertical" >
 
-    <GridLayout 
+    <GridLayout
+        android:id="@+id/grid1"
 	    android:layout_alignParentTop="true"
 		android:layout_centerInParent="true"
-	    android:layout_width="@dimen/dimenssionCentre"
+	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:columnCount="1"
-        android:rowCount="2" >
+        android:rowCount="6">
         
         <View
             android:layout_width="match_parent"
@@ -25,17 +26,47 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:gravity="center"
-	        android:text="Choisissez l&apos;action à effectuer"
+	        android:text="@string/nom_appli"
 	        android:textColor="@color/couleurTexte"
 	        android:textSize="@dimen/tailleTexteEnHaut"
 	        android:layout_column="0"
             android:layout_row="1"/>
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_column="0"
+            android:layout_row="2" />
+ 
+        <TextView
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:gravity="center"
+	        android:text="@string/message_acceuil"
+	        android:textColor="@color/couleurTexte"
+	        android:textSize="@dimen/tailleTexteEnHaut"
+	        android:layout_column="0"
+            android:layout_row="3"/>
+        
+        <TextView
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:gravity="center"
+	        android:text="@string/choix"
+	        android:textColor="@color/couleurTexte"
+	        android:textSize="@dimen/tailleTexteEnHaut"
+	        android:layout_column="0"
+            android:layout_row="4"/>
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_column="0"
+            android:layout_row="5" />
 	        
     </GridLayout>
     
-
-    
-    
+      
     <GridLayout
         android:id="@+id/gridLayout1"
         android:layout_width="@dimen/dimenssionCentre"
@@ -43,7 +74,8 @@
         android:layout_centerInParent="true"
         android:layout_centerVertical="true"
         android:columnCount="1"
-        android:rowCount="3" >
+        android:rowCount="3"
+        android:layout_below="@id/grid1">
 
         <Button
             android:id="@+id/boutonAcceuilDevoiler"
@@ -52,7 +84,7 @@
             android:layout_column="0"
             android:layout_row="0"
             android:background="@color/bgBouton"
-            android:text="Dévoiler une image"
+            android:text="Dévoiler des données"
             android:textColor="@color/white" />
 
         <View
