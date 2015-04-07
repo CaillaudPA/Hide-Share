@@ -20,10 +20,12 @@ public class QuitterOuEnvoyerImg extends DialogFragment {
 		 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 		 
 		 builder.setMessage("envoyer l'image contenant les données cachées ?")
-		 	.setPositiveButton("quitter l'aplication", new DialogInterface.OnClickListener() {
+		 	.setPositiveButton("quitter l'application", new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int id) {
-                       //quitter l'application 
-                       System.exit(0);
+                	   Intent intent = new Intent(getActivity(), Acceuil.class);
+                	   intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                	   startActivity(intent);
+                	   System.exit(0);
                 	   
                    }}).setNegativeButton("envoyer l'image", new DialogInterface.OnClickListener() {
                        public void onClick(DialogInterface dialog, int id) {

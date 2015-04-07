@@ -19,14 +19,18 @@ public class PopupErreur extends DialogFragment {
 		 builder.setMessage(msg)
 		 	.setPositiveButton("quitter l'aplication", new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int id) {
-                       //quitter l'application 
-                       System.exit(0);
+                       //quitter l'application
+                	   Intent intent = new Intent(getActivity(), Acceuil.class);
+                	   intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                	   intent.putExtra("EXIT", true);
+                	   getActivity().startActivity(intent);
+                	   System.exit(0);
                 	   
                    }}).setNegativeButton("retour a l'acceuil", new DialogInterface.OnClickListener() {
                        public void onClick(DialogInterface dialog, int id) {
                            // lancer l'activité acceuil
                     	   Intent intent = new Intent(getActivity(), Acceuil.class);
-                    	   getActivity().startActivityForResult(intent, 0);
+                    	   getActivity().startActivity(intent);
                     	   System.exit(0);
                        }
                    });

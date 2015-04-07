@@ -3,6 +3,7 @@ package com.hide_n_share.android;
 import java.io.File;
 
 import com.hide_n_share.android.utilitaire.Data;
+import com.hide_n_share.android.utilitaire.FonctionUtile;
 import com.hide_n_share.android.utilitaire.PopupErreur;
 import com.hide_n_share.modele.classeStatic.GestionFichier;
 
@@ -44,7 +45,8 @@ public class Vue_cacher_texte_Activity extends Activity implements OnClickListen
 				new PopupErreur().display(this,"la zone de texte ne doit pas etre vide");
 			}else{
 				//creations fichier contenant le message à cacher
-								
+				FonctionUtile.creationDossier();
+				
 				File file = new File(Data.fichierTexteCacher);
 				GestionFichier.fluxEnFichier(file.getPath(),texteSaisie.getBytes());
 				

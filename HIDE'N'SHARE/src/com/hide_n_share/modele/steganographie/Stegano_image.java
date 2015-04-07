@@ -324,14 +324,11 @@ public class Stegano_image extends Steganographie{
         boolean lettreCompresser = false;
         try{
             Bitmap enveloppe = BitmapFactory.decodeFile(cheminEnveloppe);
-
-
+            
             Color tmpColor = null;
             int red = 0;
             int green = 0;
             int blue = 0;
-
-
 
             int curseurBits=0;
             int[] tailleLettreBit = new int[tailleBitsLongueurLettre];
@@ -386,7 +383,8 @@ public class Stegano_image extends Steganographie{
             if(partieInutile == 101){
                 lettreCompresser = true;
             }else if(partieInutile != 100){
-                throw new Exception("erreur, cette image ne comporte pas de données cachée");
+            	new PopupErreur().display(activity, "erreur, cette image ne comporte pas de données cachée");
+                return false;
             }
 
 
@@ -453,7 +451,7 @@ public class Stegano_image extends Steganographie{
             GestionFichier.fluxEnFichier(cheminLettre, fichierCacher);
             
             if(activity != null){
-                new PopupErreur().display(activity, "l'extraction de la donnée est fini. La donnée à été placéde dans le dossier: " +cheminLettre);
+                new PopupErreur().display(activity, "l'extraction de la donnée est fini. La donnée à été placé dans le dossier: " +cheminLettre);
             }
             return true;
         }catch(Exception e){

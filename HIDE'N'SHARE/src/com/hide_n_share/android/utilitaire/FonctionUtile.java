@@ -2,6 +2,7 @@ package com.hide_n_share.android.utilitaire;
 
 
 import java.io.File;
+import java.util.Calendar;
 import java.util.Date;
 
 import android.app.Activity;
@@ -48,8 +49,8 @@ public class FonctionUtile {
 		while((new File(directory+"/"+i+"."+extensionFichier).exists())){
 			i++;
 		}
-        Date date = new Date();
-		File aRetourner = new File(directory+"/"+date.getDay()+"_"+date.getMonth()+"_"+date.getYear()+"_"+i+"."+extensionFichier);
+		Calendar c = Calendar.getInstance();
+		File aRetourner = new File(directory+"/"+c.get(Calendar.DAY_OF_MONTH)+"_"+c.get(Calendar.MONTH)+"_"+c.get(Calendar.YEAR)+"_"+c.get(Calendar.HOUR)+"_"+c.get(Calendar.MINUTE)+"_"+c.get(Calendar.SECOND)+"_"+i+"."+extensionFichier);
 		return aRetourner.getPath();
 	}
 
