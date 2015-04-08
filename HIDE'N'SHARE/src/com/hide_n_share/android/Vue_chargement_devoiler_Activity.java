@@ -49,7 +49,7 @@ public class Vue_chargement_devoiler_Activity extends Activity{
         new Thread(new Runnable(){
             public void run() {
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(250);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -61,7 +61,7 @@ public class Vue_chargement_devoiler_Activity extends Activity{
                 }
 
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(250);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

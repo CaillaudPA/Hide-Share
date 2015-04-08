@@ -59,7 +59,7 @@ public class Vue_chargement_dissimuler_Activity extends Activity {
         new Thread(new Runnable(){
             public void run() {
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(250);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -69,7 +69,7 @@ public class Vue_chargement_dissimuler_Activity extends Activity {
                 boolean resultat = stegano.dissimulerDonnee(imageDestination, compresser, motsDePasse);                
 
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(250);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
