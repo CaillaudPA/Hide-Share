@@ -45,14 +45,14 @@ public final class R {
     }
     public static final class id {
         public static final int Texte1VueCacher=0x7f0a0021;
-        public static final int Texte2VueCacher=0x7f0a0024;
+        public static final int Texte2VueCacher=0x7f0a0025;
         public static final int TexteVueCacher=0x7f0a0010;
-        public static final int action_settings=0x7f0a0026;
-        public static final int action_test=0x7f0a0027;
+        public static final int action_settings=0x7f0a0027;
+        public static final int action_test=0x7f0a0028;
         public static final int boutonAcceuilDevoiler=0x7f0a0003;
         public static final int boutonAcceuilDissimuler=0x7f0a0004;
         public static final int boutonCheminEnregistrement=0x7f0a0017;
-        public static final int boutonTest=0x7f0a0025;
+        public static final int boutonTest=0x7f0a0026;
         public static final int boutonValiderVueChiffrement=0x7f0a001c;
         public static final int boutonVueCacherCacherTexte=0x7f0a000e;
         public static final int boutonVueCacherFichierQuelconque=0x7f0a000d;
@@ -61,11 +61,12 @@ public final class R {
         public static final int boutonVueCacherTexteValide=0x7f0a0012;
         public static final int choix_enveloppe=0x7f0a0005;
         public static final int container=0x7f0a0000;
+        public static final int extFichierAutre=0x7f0a0023;
         public static final int extFichierCache=0x7f0a0022;
         public static final int grid1=0x7f0a0001;
         public static final int gridLayout1=0x7f0a0002;
         public static final int layout1_1_1_vue_saisir_mdp=0x7f0a0020;
-        public static final int layout1_1_2_vue_saisir_mdp=0x7f0a0023;
+        public static final int layout1_1_2_vue_saisir_mdp=0x7f0a0024;
         public static final int layout1_1_vue_saisir_mdp=0x7f0a001f;
         public static final int mdpVueChiffrement=0x7f0a001b;
         public static final int prendrePhoto=0x7f0a0008;

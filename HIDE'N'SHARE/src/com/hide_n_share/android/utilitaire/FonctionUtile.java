@@ -46,7 +46,15 @@ public class FonctionUtile {
 
 	public static String genererNomFichierInexistant(String directory,String extensionFichier){
 		Calendar c = Calendar.getInstance();
-		File aRetourner = new File(directory+"/"+c.get(Calendar.DAY_OF_MONTH)+"_"+c.get(Calendar.MONTH)+"_"+c.get(Calendar.YEAR)+"_"+c.get(Calendar.HOUR)+":"+c.get(Calendar.MINUTE)+":"+c.get(Calendar.SECOND)+"."+extensionFichier);
+		File aRetourner ;
+		if(extensionFichier.equals("")){
+			aRetourner = new File(c.get(Calendar.DAY_OF_MONTH)+"_"+c.get(Calendar.MONTH)+"_"+c.get(Calendar.YEAR)+"_"+c.get(Calendar.HOUR)+":"+c.get(Calendar.MINUTE)+":"+c.get(Calendar.SECOND));
+		}else if(directory.equals("")){
+			aRetourner = new File(c.get(Calendar.DAY_OF_MONTH)+"_"+c.get(Calendar.MONTH)+"_"+c.get(Calendar.YEAR)+"_"+c.get(Calendar.HOUR)+":"+c.get(Calendar.MINUTE)+":"+c.get(Calendar.SECOND)+"."+extensionFichier);
+		}else{
+			aRetourner = new File(directory+"/"+c.get(Calendar.DAY_OF_MONTH)+"_"+c.get(Calendar.MONTH)+"_"+c.get(Calendar.YEAR)+"_"+c.get(Calendar.HOUR)+":"+c.get(Calendar.MINUTE)+":"+c.get(Calendar.SECOND)+"."+extensionFichier);
+		}
+		
 		return aRetourner.getPath();
 	}
 

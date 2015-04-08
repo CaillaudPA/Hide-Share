@@ -52,8 +52,6 @@ public class Vue_devoiler_Activity extends Activity implements OnClickListener {
                 }catch(java.lang.RuntimeException e){
                 	Toast.makeText(this, "la selection du fichier ne marche pas, utilisé un autre gestionnaire de fichier", Toast.LENGTH_LONG).show();
                 }
-                
-
 			}
         }
     }
