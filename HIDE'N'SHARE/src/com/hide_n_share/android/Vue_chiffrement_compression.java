@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.TextView.OnEditorActionListener;
 
 public class Vue_chiffrement_compression extends Activity{
@@ -22,6 +23,7 @@ public class Vue_chiffrement_compression extends Activity{
 	String motsDePasse = "";
 	boolean compresser=false;
 	
+	Vue_chiffrement_compression act = this ;
 	
 	private EditText zoneSaisie;
 	private Button suivant;
@@ -36,25 +38,24 @@ public class Vue_chiffrement_compression extends Activity{
 		suivant.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View arg0) {
-				validerMDP();
+				motsDePasse= zoneSaisie.getText().toString();
+				if(validerMDP(motsDePasse)){
+					compresser = switch1.isChecked();
+					Intent intent = new Intent(act, Vue_chargement_dissimuler_Activity.class);
+					intent.putExtra(Data.EXTRA_LETTRE,pathLettre);
+					intent.putExtra(Data.EXTRA_ENVELOPPE,pathEnveloppe);
+					intent.putExtra(Data.EXTRA_COMPRESSER,compresser);
+					intent.putExtra(Data.EXTRA_MDP,motsDePasse);
+					startActivity(intent);
+				}else{
+					Toast.makeText(act, "le mots de passe doit contenir entre 4 et 56 caractère", Toast.LENGTH_LONG).show();
+				}
 			}
 		});
 		
 		switch1 = (Switch) findViewById(R.id.switchCompresserDonnee);
 		
 		zoneSaisie = (EditText)findViewById(R.id.mdpVueChiffrement);
-		zoneSaisie.setOnEditorActionListener(new OnEditorActionListener() {
-
-			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-				boolean handled = false;
-		        if (actionId == EditorInfo.IME_ACTION_SEND) {
-		        	validerMDP();
-		            handled = true;
-		        }
-		        return handled;
-			}
-		});
-
 
 		pathLettre = getIntent().getStringExtra(Data.EXTRA_LETTRE);  
 		pathEnveloppe = getIntent().getStringExtra(Data.EXTRA_ENVELOPPE);
@@ -62,16 +63,18 @@ public class Vue_chiffrement_compression extends Activity{
         zoneSaisie.clearFocus();
 	}
 	
-	public void validerMDP() {
-		compresser = switch1.isChecked();
-		motsDePasse= zoneSaisie.getText().toString();
+	public boolean validerMDP(String motDePasse){
+		if(motDePasse.equals("")){
+			return true;			
+		}
 		
-		Intent intent = new Intent(this, Vue_chargement_dissimuler_Activity.class);
-		intent.putExtra(Data.EXTRA_LETTRE,pathLettre);
-		intent.putExtra(Data.EXTRA_ENVELOPPE,pathEnveloppe);
-		intent.putExtra(Data.EXTRA_COMPRESSER,compresser);
-		intent.putExtra(Data.EXTRA_MDP,motsDePasse);
-			
-		startActivity(intent);
+		if(motDePasse.getBytes().length<4){
+			return false;
+		}
+		
+		if(motDePasse.getBytes().length>=56){
+			return false;
+		}
+		return true;
 	}
 }

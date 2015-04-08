@@ -45,12 +45,8 @@ public class FonctionUtile {
     }
 
 	public static String genererNomFichierInexistant(String directory,String extensionFichier){
-		int i = 0;
-		while((new File(directory+"/"+i+"."+extensionFichier).exists())){
-			i++;
-		}
 		Calendar c = Calendar.getInstance();
-		File aRetourner = new File(directory+"/"+c.get(Calendar.DAY_OF_MONTH)+"_"+c.get(Calendar.MONTH)+"_"+c.get(Calendar.YEAR)+"_"+c.get(Calendar.HOUR)+"_"+c.get(Calendar.MINUTE)+"_"+c.get(Calendar.SECOND)+"_"+i+"."+extensionFichier);
+		File aRetourner = new File(directory+"/"+c.get(Calendar.DAY_OF_MONTH)+"_"+c.get(Calendar.MONTH)+"_"+c.get(Calendar.YEAR)+"_"+c.get(Calendar.HOUR)+":"+c.get(Calendar.MINUTE)+":"+c.get(Calendar.SECOND)+"."+extensionFichier);
 		return aRetourner.getPath();
 	}
 

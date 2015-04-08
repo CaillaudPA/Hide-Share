@@ -3,6 +3,7 @@ package com.hide_n_share.android;
 
 import com.hide_n_share.android.utilitaire.Data;
 import com.hide_n_share.android.utilitaire.FonctionUtile;
+import com.hide_n_share.android.utilitaire.PopupErreur;
 
 import android.app.Activity;
 import android.content.ContentValues;
@@ -83,6 +84,7 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
        if (resultCode == RESULT_OK) {
             if (requestCode == Data.photoExistante) {	
                 imageUri = data.getData();
+                new PopupErreur().display(this, imageUri.toString());
                 
 				Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
 				intent.putExtra(Data.EXTRA_LETTRE,FonctionUtile.getRealPathFromURI(this,imageUri));

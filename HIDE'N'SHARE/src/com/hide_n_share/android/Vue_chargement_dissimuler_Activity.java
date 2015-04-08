@@ -78,8 +78,13 @@ public class Vue_chargement_dissimuler_Activity extends Activity {
                 
                 if(resultat){
                 	new QuitterOuEnvoyerImg().display(act,imageDestination);
-                }else{
-                	new PopupErreur().display(act, "");
+                }
+                
+                if(new File(Data.cheminDeSauvegarde+"/cacherTexte.txt").exists()){
+                	new File(Data.cheminDeSauvegarde+"/cacherTexte.txt").delete();
+                }
+                if(new File(Data.cheminDeSauvegarde+"/imgTmp.png").exists()){
+                	new File(Data.cheminDeSauvegarde+"/imgTmp.png").delete();
                 }
                 
             }
