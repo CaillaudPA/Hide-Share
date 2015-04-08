@@ -12,6 +12,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 public class Vue_saisir_mdp_Activity extends Activity{
 	
 	private Button boutonValider;
+	private Spinner extensions;
 	private EditText editText;
 	
 	String image_a_devoiler = "";
@@ -31,12 +33,13 @@ public class Vue_saisir_mdp_Activity extends Activity{
         setContentView(R.layout.vue_saisir_mdp);
         
         boutonValider = (Button)findViewById(R.id.boutonVueCacherCacherTexte);
+        extensions = (Spinner) findViewById(R.id.extFichierCache); 
         boutonValider.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
 				mdp = editText.getText().toString();
 				if(validerMDP(mdp)){
-					String nomFichierCacher = ((EditText)findViewById(R.id.nomFichierCache)).getText().toString();
-					
+					String nomFichierCacher = extensions.getSelectedItem().toString();
+					Toast.makeText(getApplicationContext(), nomFichierCacher, Toast.LENGTH_LONG).show();
 					Intent intent = new Intent(act, Vue_chargement_devoiler_Activity.class);
 					intent.putExtra(Data.EXTRA_IMG_A_DEVOILER,image_a_devoiler);
 					intent.putExtra(Data.EXTRA_MDP, mdp);

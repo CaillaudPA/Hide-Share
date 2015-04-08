@@ -23,4 +23,15 @@
 	<string name="choix">
 		<i>Que désirez vous faire ?</i>
 	</string>
+	
+	<string-array name="extensions">
+	    <item>txt</item>
+	    <item>jpg</item>
+	    <item>png</item>
+	    <item>bmp</item>
+	    <item>pdf</item>
+	    <item>docx</item>
+	    <item>odt</item>
+	    <item>autre</item>
+	</string-array>
 </resources>
