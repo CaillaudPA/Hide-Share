@@ -106,19 +106,19 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
                 imageUri = data.getData();
                 
                 try{
-                	
+                	String path = FonctionUtile.getRealPathFromURI(this,imageUri);
+                    
+                    if((new File(path)).exists()){
+        				Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
+        				intent.putExtra(Data.EXTRA_LETTRE,path);
+        				startActivity(intent);
+                    }else{
+                    	Toast.makeText(this, "la selection du fichier ne marche pas, utilisé un autre gestionnaire de fichier", Toast.LENGTH_LONG).show();
+                    }
                 }catch(java.lang.RuntimeException e){
-                	
-                }
-                String path = FonctionUtile.getRealPathFromURI(this,imageUri);
-                
-                if((new File(path)).exists()){
-    				Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
-    				intent.putExtra(Data.EXTRA_LETTRE,path);
-    				startActivity(intent);
-                }else{
                 	Toast.makeText(this, "la selection du fichier ne marche pas, utilisé un autre gestionnaire de fichier", Toast.LENGTH_LONG).show();
                 }
+                
             }
             if (requestCode == Data.photoAPrendre){
     			Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
