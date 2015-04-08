@@ -1,6 +1,8 @@
 package com.hide_n_share.android;
 
 
+import java.io.File;
+
 import com.hide_n_share.android.utilitaire.Data;
 import com.hide_n_share.android.utilitaire.FonctionUtile;
 
@@ -13,6 +15,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class Vue_choix_enveloppe_Activity extends Activity implements OnClickListener{
 	
@@ -72,12 +75,22 @@ public class Vue_choix_enveloppe_Activity extends Activity implements OnClickLis
 				startActivity(intent);
 			}else if(requestCode == Data.photoExistante){
                 imageUri = data.getData();
+                String path = "";
                 
-				Intent intent = new Intent(this, Vue_chiffrement_compression.class);
-				intent.putExtra(Data.EXTRA_ENVELOPPE,FonctionUtile.getRealPathFromURI(this,imageUri));
-				intent.putExtra(Data.EXTRA_LETTRE,pathDonneeCachee);
-				
-				startActivity(intent);
+                try{
+                	path = FonctionUtile.getRealPathFromURI(this,imageUri);
+                    if((new File(path)).exists()){
+        				Intent intent = new Intent(this, Vue_chiffrement_compression.class);
+        				intent.putExtra(Data.EXTRA_ENVELOPPE,path);
+        				intent.putExtra(Data.EXTRA_LETTRE,pathDonneeCachee);
+        				
+        				startActivity(intent);
+                    }else{
+                    	Toast.makeText(this, "la selection du fichier ne marche pas, utilisé un autre gestionnaire de fichier", Toast.LENGTH_LONG).show();
+                    }
+                }catch(java.lang.RuntimeException e){
+                	Toast.makeText(this, "la selection du fichier ne marche pas, utilisé un autre gestionnaire de fichier", Toast.LENGTH_LONG).show();
+                }
 			}
 		}		
 	}

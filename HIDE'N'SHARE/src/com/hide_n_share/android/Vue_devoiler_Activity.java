@@ -1,4 +1,6 @@
 package com.hide_n_share.android;
+import java.io.File;
+
 import com.hide_n_share.android.utilitaire.Data;
 import com.hide_n_share.android.utilitaire.FonctionUtile;
 
@@ -9,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class Vue_devoiler_Activity extends Activity implements OnClickListener {
 	private Button selectImage;
@@ -36,10 +39,21 @@ public class Vue_devoiler_Activity extends Activity implements OnClickListener {
         if (resultCode == RESULT_OK) {
         	if (requestCode == Data.photoAPrendre) {
                 imageUri = data.getData();
+                String path = "";
+                try{
+                	path = FonctionUtile.getRealPathFromURI(this,imageUri);
+                	if((new File(path)).exists()){
+            			Intent intent = new Intent(this, Vue_saisir_mdp_Activity.class);
+            			intent.putExtra(Data.EXTRA_IMG_A_DEVOILER, path);
+            			startActivity(intent);
+                	}else{
+                		Toast.makeText(this, "la selection du fichier ne marche pas, utilisé un autre gestionnaire de fichier", Toast.LENGTH_LONG).show();
+                	}
+                }catch(java.lang.RuntimeException e){
+                	Toast.makeText(this, "la selection du fichier ne marche pas, utilisé un autre gestionnaire de fichier", Toast.LENGTH_LONG).show();
+                }
                 
-    			Intent intent = new Intent(this, Vue_saisir_mdp_Activity.class);
-    			intent.putExtra(Data.EXTRA_IMG_A_DEVOILER,FonctionUtile.getRealPathFromURI(this, imageUri));
-    			startActivity(intent);
+
 			}
         }
     }

@@ -1,6 +1,8 @@
 package com.hide_n_share.android;
 
 
+import java.io.File;
+
 import com.hide_n_share.android.utilitaire.Data;
 import com.hide_n_share.android.utilitaire.FonctionUtile;
 import com.hide_n_share.android.utilitaire.PopupErreur;
@@ -14,6 +16,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class Vue_cacher_Activity extends Activity implements OnClickListener {
 	
@@ -84,20 +87,38 @@ public class Vue_cacher_Activity extends Activity implements OnClickListener {
        if (resultCode == RESULT_OK) {
             if (requestCode == Data.photoExistante) {	
                 imageUri = data.getData();
-                new PopupErreur().display(this, imageUri.toString());
-                
-				Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
-				intent.putExtra(Data.EXTRA_LETTRE,FonctionUtile.getRealPathFromURI(this,imageUri));
-				startActivity(intent);
-
+                String path = "";
+                try{
+                	 path = FonctionUtile.getRealPathFromURI(this,imageUri);
+                     if((new File(path)).exists()){
+         				Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
+         				intent.putExtra(Data.EXTRA_LETTRE,path);
+         				startActivity(intent);
+                     }else{
+                     	Toast.makeText(this, "la selection du fichier ne marche pas, utilisé un autre gestionnaire de fichier", Toast.LENGTH_LONG).show();
+                     }
+                }catch(java.lang.RuntimeException e){
+                	Toast.makeText(this, "la selection du fichier ne marche pas, utilisé un autre gestionnaire de fichier", Toast.LENGTH_LONG).show();
+                }
 
             }
             if (requestCode == Data.fichierQuelconque) {	
                 imageUri = data.getData();
-				Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
-				intent.putExtra(Data.EXTRA_LETTRE,FonctionUtile.getRealPathFromURI(this,imageUri));
-				startActivity(intent);
-
+                
+                try{
+                	String path = FonctionUtile.getRealPathFromURI(this,imageUri);
+                    
+                    if((new File(path)).exists()){
+        				Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
+        				intent.putExtra(Data.EXTRA_LETTRE,path);
+        				startActivity(intent);
+                    }else{
+                    	Toast.makeText(this, "la selection du fichier ne marche pas, utilisé un autre gestionnaire de fichier", Toast.LENGTH_LONG).show();
+                    }
+                }catch(java.lang.RuntimeException e){
+                	Toast.makeText(this, "la selection du fichier ne marche pas, utilisé un autre gestionnaire de fichier", Toast.LENGTH_LONG).show();
+                }
+                
             }
             if (requestCode == Data.photoAPrendre){
     			Intent intent = new Intent(this, Vue_choix_enveloppe_Activity.class);
