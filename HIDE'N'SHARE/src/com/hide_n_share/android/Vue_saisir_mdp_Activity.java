@@ -52,10 +52,8 @@ public class Vue_saisir_mdp_Activity extends Activity implements OnItemSelectedL
 					}else{
 						ext = extensions.getSelectedItem().toString();
 					}
-					
 					String nomFichierCacher = FonctionUtile.genererNomFichierInexistant("", ext);
 					
-					Toast.makeText(getApplicationContext(), nomFichierCacher, Toast.LENGTH_LONG).show();
 					Intent intent = new Intent(act, Vue_chargement_devoiler_Activity.class);
 					intent.putExtra(Data.EXTRA_IMG_A_DEVOILER,image_a_devoiler);
 					intent.putExtra(Data.EXTRA_MDP, mdp);

@@ -29,9 +29,12 @@
 	    <item>jpg</item>
 	    <item>png</item>
 	    <item>bmp</item>
+		<item>gif</item>
 	    <item>pdf</item>
 	    <item>docx</item>
 	    <item>odt</item>
+	    <item>mp3</item>
+
 	    <item>autre</item>
 	</string-array>
 </resources>
