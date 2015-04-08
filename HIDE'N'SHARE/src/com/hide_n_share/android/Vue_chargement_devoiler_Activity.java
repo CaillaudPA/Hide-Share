@@ -30,11 +30,7 @@ public class Vue_chargement_devoiler_Activity extends Activity{
         
         image_a_devoiler = getIntent().getStringExtra(Data.EXTRA_IMG_A_DEVOILER);  
         mdp = getIntent().getStringExtra(Data.EXTRA_MDP);
-        cheminDestination = Data.cheminDossierDevoiler + "/" + getIntent().getStringExtra(Data.EXTRA_NOM_FICHIER_CACHER);
-        
-        
-        //new PopupErreur().display(this, image_a_devoiler+"\n"+mdp+"\n"+cheminDestination);
-        
+        cheminDestination = Data.cheminDossierDevoiler + "/" + getIntent().getStringExtra(Data.EXTRA_NOM_FICHIER_CACHER);        
         mProgress = (ProgressBar)findViewById(R.id.progressBar2);
 
 
@@ -59,7 +55,10 @@ public class Vue_chargement_devoiler_Activity extends Activity{
                 }
 
                 Stegano_image stegano = new Stegano_image("", "",act,chargement);
-                stegano.devoilerDonnee(image_a_devoiler, cheminDestination, mdp);
+                
+                if(stegano.devoilerDonnee(image_a_devoiler, cheminDestination, mdp)){
+                	new PopupErreur().display(act, "le fichier qui etait cacher est sauvegarder dans:\n"+ cheminDestination);
+                }
 
                 try {
                     Thread.sleep(1000);
@@ -72,9 +71,4 @@ public class Vue_chargement_devoiler_Activity extends Activity{
         
         
     }
-	//à appeler a la fin du chargement !
-	public void finish(){
-		new PopupErreur().display(this, "le fichier qui etait cacher est sauvegarder dans:\n"+ cheminDestination);
-	}
-
 }

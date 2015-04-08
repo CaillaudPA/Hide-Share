@@ -37,27 +37,13 @@
         android:background="#FFFFFF"
         android:imeOptions="actionSend"/>
 
-
-        <Button
-            android:id="@+id/boutonRetourVueChiffrement"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:text="Retour"
-            android:layout_column="0"
-            android:background="@color/bgBouton"/>
-        
-
         <Button
             android:id="@+id/boutonValiderVueChiffrement"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
             android:text="Valider"
-            android:layout_column="1"
-            android:background="@color/bgBouton"/>
+            android:background="@color/bgBouton"
+            android:layout_below="@id/mdpVueChiffrement"/>
 
 
 

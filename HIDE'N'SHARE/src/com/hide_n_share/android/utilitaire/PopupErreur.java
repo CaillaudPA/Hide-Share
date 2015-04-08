@@ -17,6 +17,7 @@ public class PopupErreur extends DialogFragment {
 		 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 		 
 		 builder.setMessage(msg)
+		 .setCancelable(false)
 		 	.setPositiveButton("quitter l'aplication", new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int id) {
                        //quitter l'application

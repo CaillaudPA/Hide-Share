@@ -20,7 +20,7 @@ public class QuitterOuEnvoyerImg extends DialogFragment {
 		 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 		 
 		 builder.setMessage("envoyer l'image contenant les données cachées ?")
-		 	.setPositiveButton("quitter l'application", new DialogInterface.OnClickListener() {
+		 	.setPositiveButton("retour a l'acceuil", new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int id) {
                 	   Intent intent = new Intent(getActivity(), Acceuil.class);
                 	   intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -34,6 +34,7 @@ public class QuitterOuEnvoyerImg extends DialogFragment {
                            intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(cheminImage)));
                            intent.setType("image/png"); 
                            startActivity(Intent.createChooser(intent,"Send"));
+                           System.exit(0);
                        }
                    });
 		 return builder.create();

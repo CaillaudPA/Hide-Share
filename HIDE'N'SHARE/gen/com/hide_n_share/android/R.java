@@ -41,17 +41,16 @@ public final class R {
         public static final int repertoirephoto=0x7f020005;
     }
     public static final class id {
-        public static final int Texte1VueCacher=0x7f090022;
-        public static final int Texte2VueCacher=0x7f090025;
+        public static final int Texte1VueCacher=0x7f090021;
+        public static final int Texte2VueCacher=0x7f090024;
         public static final int TexteVueCacher=0x7f090010;
-        public static final int action_settings=0x7f090027;
-        public static final int action_test=0x7f090028;
+        public static final int action_settings=0x7f090026;
+        public static final int action_test=0x7f090027;
         public static final int boutonAcceuilDevoiler=0x7f090003;
         public static final int boutonAcceuilDissimuler=0x7f090004;
         public static final int boutonCheminEnregistrement=0x7f090017;
-        public static final int boutonRetourVueChiffrement=0x7f09001c;
-        public static final int boutonTest=0x7f090026;
-        public static final int boutonValiderVueChiffrement=0x7f09001d;
+        public static final int boutonTest=0x7f090025;
+        public static final int boutonValiderVueChiffrement=0x7f09001c;
         public static final int boutonVueCacherCacherTexte=0x7f09000e;
         public static final int boutonVueCacherFichierQuelconque=0x7f09000d;
         public static final int boutonVueCacherPhotoAPrendre=0x7f09000c;
@@ -61,11 +60,11 @@ public final class R {
         public static final int container=0x7f090000;
         public static final int grid1=0x7f090001;
         public static final int gridLayout1=0x7f090002;
-        public static final int layout1_1_1_vue_saisir_mdp=0x7f090021;
-        public static final int layout1_1_2_vue_saisir_mdp=0x7f090024;
-        public static final int layout1_1_vue_saisir_mdp=0x7f090020;
+        public static final int layout1_1_1_vue_saisir_mdp=0x7f090020;
+        public static final int layout1_1_2_vue_saisir_mdp=0x7f090023;
+        public static final int layout1_1_vue_saisir_mdp=0x7f09001f;
         public static final int mdpVueChiffrement=0x7f09001b;
-        public static final int nomFichierCache=0x7f090023;
+        public static final int nomFichierCache=0x7f090022;
         public static final int prendrePhoto=0x7f090008;
         public static final int progressBar2=0x7f090014;
         public static final int repertoirephoto=0x7f090009;
@@ -78,8 +77,8 @@ public final class R {
         public static final int vue_chargement=0x7f090013;
         public static final int vue_chemin_enregistrement=0x7f090015;
         public static final int vue_chiffrement_compression=0x7f090018;
-        public static final int vue_devoile=0x7f09001e;
-        public static final int vue_saisir_mdp=0x7f09001f;
+        public static final int vue_devoile=0x7f09001d;
+        public static final int vue_saisir_mdp=0x7f09001e;
         public static final int zoneSaisieVueCacherTexte=0x7f090011;
         public static final int zoneSaisieVueCheminEnr=0x7f090016;
     }

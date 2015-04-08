@@ -12,9 +12,15 @@ import com.hide_n_share.modele.steganographie.Color;
 
 import java.io.*;
 import java.nio.ByteBuffer;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 
 public class Stegano_image extends Steganographie{
 
@@ -221,7 +227,24 @@ public class Stegano_image extends Steganographie{
         //chiffrement et compression si il y a lieu
         byte[] lettreTmp = GestionFichier.fichierEnFlux(this.lettre.getLettre());//.length+tailleTotalReserver
         if(!(mdp.equals(""))){
-            lettreTmp = Cryptage.chiffrement(lettreTmp, mdp.getBytes());
+            try {
+				lettreTmp = Cryptage.chiffrement(lettreTmp, mdp.getBytes());
+			} catch (InvalidKeyException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (BadPaddingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NoSuchAlgorithmException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NoSuchPaddingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalBlockSizeException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
         }
         if(compresser){
             lettreTmp = Compresser.compression(lettreTmp);
@@ -444,7 +467,15 @@ public class Stegano_image extends Steganographie{
             }
 
             if(!(mdp.equals(""))){
-                fichierCacher = Cryptage.deChiffrement(fichierCacher, mdp.getBytes());
+            	try{
+            		fichierCacher = Cryptage.deChiffrement(fichierCacher, mdp.getBytes());
+            	}catch(Exception e){
+                    if(activity != null){
+                        new PopupErreur().display(activity, "le mot de passe est incorrecte");
+                    }
+                    e.printStackTrace();
+            		return false;
+            	}
             }
 
             System.out.println("taille total : "+(tailleLettre+tailleTotalReserver/8));
